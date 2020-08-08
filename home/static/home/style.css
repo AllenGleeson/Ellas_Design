@@ -1,4 +1,18 @@
 body{
-    background: url('images/ella_design_background.jpg') no-repeat center center fixed;
+    background: url('images/home_bg_img.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+#welcome_qoute{
+    color: white;
+    text-shadow: 2px 2px #000000;
+}
+
+#shop_now_btn{
+    background-color: #f993be !important;
+    color: white;
+    border-color: white;
+    font-size: 60px;
+    border-radius: 20px;
+    float: right;
 }

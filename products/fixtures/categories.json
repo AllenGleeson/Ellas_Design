@@ -1,0 +1,18 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "bandanas",
+            "friendly_name": "Bandanas"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "tops",
+            "friendly_name": "Tops"
+        }
+    }
+]

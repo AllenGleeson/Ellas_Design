@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-5">About me</h1>
+    <p class="text-center m-2">There was a time when he would have embraced the change that was coming. In his youth, he
+        sought adventure and the unknown,
+        but that had been years ago. He wished he could go back and learn to find the excitement that came with change
+        but it was useless.
+        That curiosity had long left him to where he had come to loathe anything that put him out of his comfort zone.
+    </p>
+    <img src="images/ella_design_background.jpg" alt="">
+    <ul>
+        <li>Based in: Ireland</li>
+        <li>College: Ireland</li>
+        <li>Based in: Ireland</li>
+    </ul>
+    <ul class="fa-ul">
+        <li>
+            Social Media
+        </li>
+        <li>
+            <i class="fa-li fa fa-envelope-square"></i>
+            <p>Instagram</p>
+        </li>
+        <li>
+            <i class="fa-li fa fa-envelope-square"></i>
+            <p>Email</p>
+        </li>
+        <li>
+            <i class="fa-li fa fa-envelope-square"></i>
+            <p>Facebook</p>
+        </li>
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,7 +1,30 @@
+/* Nav Bar */
+
+.navbar{
+    background-color: #f993be !important;
+    border-bottom: 2px solid #fff !important;
+}
+
+.nav-link{
+    color: white !important;
+    border-radius: 20px !important;
+}
+
+#logo{
+    width: 200px;
+}
+.nav_buttons{
+    font-size: 2rem;
+}
+
+header{
+    margin-bottom: 50px;
+}
 
 /* Footer */
 
 footer {
+    background-color: #f993be !important;
     height: 250px;
 }
 
