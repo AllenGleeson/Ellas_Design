@@ -1,3 +1,10 @@
+
+.page_btn_color{
+    background-color: #f993be !important;
+    color: white;
+    border-color: #0600008f;
+}
+
 /* Nav Bar */
 
 .navbar{
@@ -21,11 +28,20 @@ header{
     margin-bottom: 50px;
 }
 
+.flex-wrapper {
+    display: flex;
+    min-height: 90vh;
+    flex-direction: column;
+    justify-content: space-between
+}
+
 /* Footer */
 
 footer {
     background-color: #f993be !important;
-    height: 250px;
+    width: 100%;
+    height: 200px;
+    margin-top: 90px;
 }
 
 .mylogo{

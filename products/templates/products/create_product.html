@@ -24,8 +24,8 @@
         <div>
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
-                    <a href="{% url 'products' %}">Edit</a>
-                    <a href="{% url 'products' %}">Delete</a>
+                    <button>Edit Product</button>
+                    <button>Delete Product</button>
                 {% endif %}
             {% endif %}
 
