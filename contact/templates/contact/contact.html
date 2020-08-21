@@ -7,12 +7,17 @@
 
 {% block content %}
 <div class="container">
-    <h1>Please contact me below if you would like to get in touch</h1>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn page_btn_color" type="submit" value="Submit" />
-    </form>
+    <div class="row">
+        <div class="col">
+            <h1>Please contact me below if you would like to get in touch</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn button_colors" type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

@@ -1,54 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_filters %}
 
 {% block extra_css %}
-<link rel="stylesheet" type="text/css" href="{% static 'products/products.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <img class="products_page_image" src="{{product.image_url}}" alt=""></img>
-    </div>
-
-    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <div class="products_details">
-            <h2>{{product.name}}</h2>
-            <p>Price: €{{product.price}}</p>
-            <p>{{product.description}}</p>
-        </div>
-
-    </div>
-
-    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <div>
-            {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                    <button>Edit Product</button>
-                    <button>Delete Product</button>
-                {% endif %}
-            {% endif %}
-
-            <p>Buy now for: €{{product.price}}</p>
-            {% if product %}
-                <span id="stock_span">In Stock</span>
-                <select name="quantity_picker" id="quantity_picker">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-                <button id="add_to_cart" class="btn page_btn_color">Add to Cart</button>
-            {% else %}
-                <span id="stock_span">Out of Stock</span>
-            {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form method="POST" action="{% url 'create_product' %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
+                <div class="text-right">
+                    <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 {% endblock %}

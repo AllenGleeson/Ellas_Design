@@ -11,10 +11,12 @@ a{
     padding: 20px;
 }
 
-#add_to_cart{
-    background-color: #f993be !important;
-    color: white;
-    border-color: #0600008f;
+.increment-qty{
+    color: #f993be !important;
+}
+
+.decrement-qty{
+    color: #f993be !important;
 }
 
 .products_details{
@@ -23,4 +25,10 @@ a{
 
 .products_details p{
     font-size: 1.4rem;
+}
+
+#id_image{
+    background-color: #f993be !important;
+    color: white;
+    border-color: #0600008f;
 }

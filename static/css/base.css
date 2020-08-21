@@ -1,8 +1,12 @@
 
-.page_btn_color{
+.button_colors{
     background-color: #f993be !important;
     color: white;
-    border-color: #0600008f;
+    border-color: #0600008f !important;
+}
+
+body{
+    font-family: 'Courgette', cursive;
 }
 
 /* Nav Bar */
@@ -15,6 +19,10 @@
 .nav-link{
     color: white !important;
     border-radius: 20px !important;
+}
+
+.nav-item:hover{
+    border: 2px solid #ffffff69;
 }
 
 #logo{

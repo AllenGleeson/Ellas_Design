@@ -2,11 +2,28 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" type="text/css" href="{% static 'products/products.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="container">
+    <div class="row">
+        <div class="col text-center mt-3">
+            {% if current_category %}
+            <h4 class="mb-4">{{current_category}}</h4>
+            {% endif %}
+            <a class="category-badge text-decoration-none" href="{% url 'products' %}">
+                <span class="p-2 mt-2 button_colors rounded-0 border">All</span>
+            </a>
+            {% for c in categories %}
+                <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                    <span class="p-2 mt-2 button_colors rounded-0 border">{{ c.friendly_name }}</span>
+                </a>
+            {% endfor %}
+            <hr class="mb-1">
+        </div>
+    </div>
+
     <div class="row">
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
