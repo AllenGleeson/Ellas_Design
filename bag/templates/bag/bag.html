@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bagtools %}
 
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'bag/css/bag.css' %}">
@@ -26,10 +27,10 @@
                     <tr>
                         <td class="p-3 w-25">
                             {% if item.product.image %}
-                            <img class="img-fluid rounded" src="{{ item.product.image_url }}"
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}"
                                 alt="{{ item.product.name }}">
                             {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png"
+                            <img class="img-fluid rounded" src="{% static 'images/placeholder.jpg'%}"
                                 alt="{{ item.product.name }}">
                             {% endif %}
                         </td>
@@ -38,7 +39,7 @@
                             <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
                             <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -67,18 +68,18 @@
                                     </div>
                                 </div>
                             </form>
-                            <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right"
-                                id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                            <a class="update-link text-info" type="button"><small>Update</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
+                                type="button"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity}}</p>
                         </td>
                     </tr>
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right">
-                            <h4 class="mt-4"><strong>Grand Total: ${{ total|floatformat:2 }}</strong></h4>
+                            <h4 class="mt-4"><strong>Grand Total: €{{ total|floatformat:2 }}</strong></h4>
                         </td>
                     </tr>
                     <tr>
@@ -89,7 +90,7 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <a href="#" class="btn btn-black button_colors rounded-0 btn-lg">
+                            <a href="{% url 'checkout' %}" class="btn btn-black button_colors rounded-0 btn-lg">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>

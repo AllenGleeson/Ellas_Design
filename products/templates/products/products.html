@@ -16,9 +16,9 @@
                 <span class="p-2 mt-2 button_colors rounded-0 border">All</span>
             </a>
             {% for c in categories %}
-                <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                    <span class="p-2 mt-2 button_colors rounded-0 border">{{ c.friendly_name }}</span>
-                </a>
+            <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                <span class="p-2 mt-2 button_colors rounded-0 border">{{ c.friendly_name }}</span>
+            </a>
             {% endfor %}
             <hr class="mb-1">
         </div>
@@ -29,7 +29,11 @@
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div class="card">
                 <a href="{% url 'view_product' product.id %}">
-                    <img class="card-img-top" src="{{product.image_url}}" alt="Card image cap">
+                    {% if product.image %}
+                    <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="Card image cap">
+                    {% else %}
+                    <img class="card-img-top" src="{% static 'images/placeholder.jpg'%}" alt="Card image cap">
+                    {% endif %}
                     <div class="card-body text-dark">
                         <h5 class="card-title">{{product.name}}</h5>
                         <p class="card-text">{{product.category.friendly_name}}</p>

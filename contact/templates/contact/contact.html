@@ -10,6 +10,9 @@
     <div class="row">
         <div class="col">
             <h1>Please contact me below if you would like to get in touch</h1>
+            {% if message %}
+                <h3>{{ message }}</h3>
+            {% endif %}
             <form action="" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}

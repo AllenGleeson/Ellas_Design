@@ -3,156 +3,144 @@
         "model": "products.product",
         "pk": 1,
         "fields": {
-            "sku": "asasdd",
+            "sku": "askw3l",
             "name": "Checkered Flowers 2.0 - Bandana",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn around the head or tied around your bag as an accessory",
             "price": 25,
             "category": 1,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/117200155_756449061780934_3351135847113631500_n.jpg",
-            "image": "117200155_756449061780934_3351135847113631500_n.jpg"
+            "image": "product_images/117200155_756449061780934_3351135847113631500_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 2,
         "fields": {
-            "sku": "asasdd",
+            "sku": "kol9ie",
             "name": "Checkered Flowers 1.0 - Bandana",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn around the head or tied around your bag as an accessory",
             "price": 25,
             "category": 1,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116838238_284737459285897_9109133675284271092_n.jpg",
-            "image": "116838238_284737459285897_9109133675284271092_n.jpg"
+            "image": "product_images/116838238_284737459285897_9109133675284271092_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 3,
         "fields": {
-            "sku": "asasdd",
+            "sku": "pil29s",
             "name": "Purple Starsign - Bandana",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn around the head or tied around your bag as an accessory",
             "price": 25,
             "category": 1,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/117139449_215383646510552_1100555512901908914_n.jpg",
-            "image": "117139449_215383646510552_1100555512901908914_n.jpg"
+            "image": "product_images/117139449_215383646510552_1100555512901908914_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 4,
         "fields": {
-            "sku": "asasdd",
+            "sku": "90ffpe",
             "name": "Pink Starsign - Bandana",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn around the head or tied around your bag as an accessory",
             "price": 25,
             "category": 1,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116868427_915924608914296_801576501461210897_n.jpg",
-            "image": "116868427_915924608914296_801576501461210897_n.jpg"
+            "image": "product_images/116868427_915924608914296_801576501461210897_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 5,
         "fields": {
-            "sku": "asasdd",
+            "sku": "gt3emt",
             "name": "Jewels - Bandana",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn around the head or tied around your bag as an accessory",
             "price": 25,
             "category": 1,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116706767_2961456057300116_6722008401223787515_n.jpg",
-            "image": "116706767_2961456057300116_6722008401223787515_n.jpg"
+            "image": "product_images/116706767_2961456057300116_6722008401223787515_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 6,
         "fields": {
-            "sku": "asasdd",
+            "sku": "jikal2",
             "name": "Black Flowers - Bandana",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn around the head or tied around your bag as an accessory",
             "price": 25,
             "category": 1,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116718141_294830444928270_9029889472412770439_n.jpg",
-            "image": "116718141_294830444928270_9029889472412770439_n.jpg"
+            "image": "product_images/116718141_294830444928270_9029889472412770439_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 7,
         "fields": {
-            "sku": "asasdd",
+            "sku": "kdok23",
             "name": "Checkered Flowers 2.0 - Top",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn as a top",
             "price": 34,
             "category": 2,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/117200155_756449061780934_3351135847113631500_n.jpg",
-            "image": "117200155_756449061780934_3351135847113631500_n.jpg"
+            "image": "product_images/117200155_756449061780934_3351135847113631500_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 8,
         "fields": {
-            "sku": "asasdd",
+            "sku": "8esnfs",
             "name": "Checkered Flowers 1.0 - Top",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn as a top",
             "price": 34,
             "category": 2,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116838238_284737459285897_9109133675284271092_n.jpg",
-            "image": "116838238_284737459285897_9109133675284271092_n.jpg"
+            "image": "product_images/116838238_284737459285897_9109133675284271092_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 9,
         "fields": {
-            "sku": "asasdd",
+            "sku": "aakw23",
             "name": "Purple Starsign - Top",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn as a top",
             "price": 34,
             "category": 2,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/117139449_215383646510552_1100555512901908914_n.jpg",
-            "image": "117139449_215383646510552_1100555512901908914_n.jpg"
+            "image": "product_images/117139449_215383646510552_1100555512901908914_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 10,
         "fields": {
-            "sku": "asasdd",
+            "sku": "po22p3",
             "name": "Pink Starsign - Top",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn as a top",
             "price": 34,
             "category": 2,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116868427_915924608914296_801576501461210897_n.jpg",
-            "image": "116868427_915924608914296_801576501461210897_n.jpg"
+            "image": "product_images/116868427_915924608914296_801576501461210897_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 11,
         "fields": {
-            "sku": "asasdd",
+            "sku": "k8821s",
             "name": "Jewels - Top",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn as a top",
             "price": 34,
             "category": 2,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116706767_2961456057300116_6722008401223787515_n.jpg",
-            "image": "116706767_2961456057300116_6722008401223787515_n.jpg"
+            "image": "product_images/116706767_2961456057300116_6722008401223787515_n.jpg"
         }
     },
     {
         "model": "products.product",
         "pk": 12,
         "fields": {
-            "sku": "asasdd",
+            "sku": "htn2mk",
             "name": "Black Flowers - Top",
             "description": "Scarf made out of faux silk material, soft and shiney with a fun, playful and bright aesthetic. Can be worn as a top",
             "price": 34,
             "category": 2,
-            "image_url": "https://ellas-design-bucket.s3-eu-west-1.amazonaws.com/product_images/116718141_294830444928270_9029889472412770439_n.jpg",
-            "image": "116718141_294830444928270_9029889472412770439_n.jpg"
+            "image": "product_images/116718141_294830444928270_9029889472412770439_n.jpg"
         }
     }
 ]

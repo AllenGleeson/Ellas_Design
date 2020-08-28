@@ -1,0 +1,27 @@
+body {
+    background: url('../images/home.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#welcome_qoute {
+    color: white;
+    text-shadow: 2px 2px #000000;
+}
+
+#shop_now_btn {
+    background-color: #f993be !important;
+    color: white;
+    border-color: white;
+    font-size: 60px;
+    border-radius: 20px;
+    float: right;
+}
+
+.container {
+    height: 530px;
+    margin-bottom: 100px;
+}
+
+.home_jumbotron {
+    margin-top: 310px;
+}

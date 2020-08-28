@@ -27,7 +27,7 @@ $(".decrement-qty").click(function () {
 
 // Update quantity on click
 $('.update-link').click(function () {
-    $(".update-form").submit();
+    this.parentElement.getElementsByTagName('form')[0].submit();
 })
 
 /* // Remove item and reload on click

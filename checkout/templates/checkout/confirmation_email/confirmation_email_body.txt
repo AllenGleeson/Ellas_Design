@@ -1,0 +1,24 @@
+
+Hey {{ order.full_name }}!
+
+Thank you so much for purchase and support!
+
+This is a confirmation of your order from Ella Moya. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Grand Total: €{{ order.grand_total }}
+
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }} within 10 business days.
+If there is a problem please get in touch with me and I will get back to you as soon as I can.
+
+We've got your phone number on file as {{ order.phone_number }}.
+
+If you have any questions, feel free to contact me at {{ contact_email }}.
+
+Thank you for your order!
+
+Sincerely,
+
+Ella Moya

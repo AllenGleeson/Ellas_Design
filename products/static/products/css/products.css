@@ -1,34 +1,32 @@
-.card{
+.card {
     margin: 1rem !important;
 }
 
-a{
+a {
     text-decoration: none !important;
 }
 
-.products_page_image{
+.products_page_image {
     width: 100%;
     padding: 20px;
 }
 
-.increment-qty{
+.increment-qty {
     color: #f993be !important;
 }
 
-.decrement-qty{
+.decrement-qty {
     color: #f993be !important;
 }
 
-.products_details{
+.products_details {
     padding: 20px;
 }
 
-.products_details p{
+.products_details p {
     font-size: 1.4rem;
 }
 
-#id_image{
-    background-color: #f993be !important;
-    color: white;
-    border-color: #0600008f;
+.category-badge {
+    font-size: 2rem;
 }

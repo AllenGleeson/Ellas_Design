@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <form method="POST" action="{% url 'create_category' %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                {{ field | as_crispy_field }}
+                {% endfor %}
+                <div>
+                    <a class="btn button_colors rounded-0" href="{% url 'product_management' %}">Cancel</a>
+                    <button class="btn button_colors rounded-0" type="submit">Add Category</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <h2>Current Categories:</h2>
+            <ul>
+                {% for c in categories %}
+                <li>{{ c.friendly_name}}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

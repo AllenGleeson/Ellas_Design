@@ -3,20 +3,57 @@
 {% load crispy_forms_filters %}
 
 {% block extra_css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'products/products.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'products/products.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row">
+        <h1 class="mb-4">Your Profile: {{ request.user }}</h1>
         <div class="col-12 col-lg-6">
+            <h2 class="mb-4">Delivery Information:</h2>
             <form class="form mb-2 mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {% for field in form %}
-                    {{ field | as_crispy_field }}
+                {{ field | as_crispy_field }}
                 {% endfor %}
-                <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                <button class="btn btn-black button_colors rounded-0 text-uppercase float-right">Update
+                    Information</button>
             </form>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <h2 class="mb-4">Order History:</h2>
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>{{ order.order_number }}</td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ item.product.name }} x{{ item.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>€{{ order.grand_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

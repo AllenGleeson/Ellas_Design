@@ -13,15 +13,15 @@
             <form method="POST" action="{% url 'create_product' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
-                    {% if field.name != 'image' %}
-                        {{ field | as_crispy_field }}
-                    {% else %}
-                        {{ field }}
-                    {% endif %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
                 {% endfor %}
                 <div class="text-right">
-                    <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                    <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                    <a class="btn button_colors rounded-0" href="{% url 'product_management' %}">Cancel</a>
+                    <button class="btn button_colors rounded-0" type="submit">Add Product</button>
                 </div>
             </form>
         </div>

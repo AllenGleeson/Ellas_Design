@@ -8,6 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icon from Favicon.cs - https://www.favicon.cc/?action=icon&file_id=752326 -->
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAaQBgAKg0nwCCCnkA0XfKAI8ThQDeitcAXABUAMRivAC9T7QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHd3d3d3dwAAcpKZmSknAAAZgoiIKJEAABiJiIiYgQAAFISIiEhBAAAWlpRJaWEAABYmJmJiYQAAAWIiIiYQAAAAEREREQAAAAAyIiIjAAAAdzhohoN3AAEidmZmZyIQAYiIZmaIiBA0iIZVVWiIQwNmZQAAVmYwAFVQAAAFVQDAAwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAA4AcAAPAPAADwDwAAwAMAAIABAACAAQAAAAAAAIPBAADH4wAA"
+        rel="icon" type="image/x-icon" />
     {% endblock %}
 
     {% block corecss %}
@@ -20,13 +24,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     {% endblock %}
-    
+
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
     <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
     {% endblock %}
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 
     <title>Ellas Designs</title>
 </head>
@@ -112,53 +120,40 @@
         {% block content %}
         {% endblock %}
 
-        <footer class="footer d-flex text-light p-3">
-            <div class="row">
-                <div class="col-3 mylogo align-middle">
-                    <img src="" alt=""></img>
-                    <div>Ellas Design</div>
+        <footer class="footer d-flex justify-content-around text-light p-3">
+                <div class="text-center">
+                    <h3>Ellas Design</h3>
                 </div>
-                <!-- Contact and other social media -->
-                <div class="col-3">
-                    <ul class="fa-ul float-right">
+                <div>
+                    <ul class="fa-ul text-center">
                         <li>
-                            Social Media
+                            <p><span class="fa-li fa fa-instagram" aria-hidden="true"></span>Instagram</p>
                         </li>
                         <li>
-                            <i class="fa-li fa fa-envelope-square"></i>
-                            <p>Instagram</p>
-                        </li>
-                        <li>
-                            <i class="fa-li fa fa-envelope-square"></i>
-                            <p>Email</p>
-                        </li>
-                        <li>
-                            <i class="fa-li fa fa-envelope-square"></i>
-                            <p>Facebook</p>
+                            <p><span class="fa-li fa fa-envelope-square" aria-hidden="true"></span>Email</p>
                         </li>
                     </ul>
                 </div>
 
-                <div class="col-3">
-                    <ul class="fa-ul float-right">
+                <div>
+                    <ul class="fa-ul text-center">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Shop</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'products' %}">Shop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                         </li>
                     </ul>
                 </div>
-            </div>
 
         </footer>
     </div>
 
 
-    
+
 
     {% block js %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -168,6 +163,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
         crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     {% endblock %}
 
     {% block postloadjs %}
