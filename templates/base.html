@@ -33,8 +33,8 @@
     {% endblock %}
 
     <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 
     <title>Ellas Designs</title>
 </head>
@@ -121,33 +121,37 @@
         {% endblock %}
 
         <footer class="footer d-flex justify-content-around text-light p-3">
-                <div class="text-center">
-                    <h3>Ellas Design</h3>
-                </div>
+            <div class="text-center">
+                <h3>Ellas Design</h3>
+            </div>
+            <div>
                 <div>
-                    <ul class="fa-ul text-center">
-                        <li>
-                            <p><span class="fa-li fa fa-instagram" aria-hidden="true"></span>Instagram</p>
-                        </li>
-                        <li>
-                            <p><span class="fa-li fa fa-envelope-square" aria-hidden="true"></span>Email</p>
-                        </li>
-                    </ul>
+                    <div>
+                        <a href="https://www.instagram.com/ellamoyadesign/">
+                            <p><span class="fa fa-instagram" aria-hidden="true"></span>
+                                @ellamoyadesign</p>
+                        </a>
+                    </div>
+                    <div>
+                        <p><span class="fa fa-envelope-square" aria-hidden="true"></span>ella.moya.design@gmail.com
+                        </p>
+                    </div>
                 </div>
+            </div>
 
-                <div>
-                    <ul class="fa-ul text-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'products' %}">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <ul class="fa-ul text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'products' %}">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
 
         </footer>
     </div>

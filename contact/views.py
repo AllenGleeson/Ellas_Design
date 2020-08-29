@@ -21,10 +21,10 @@ def contact(request):
         # Sends a the users message to the site owner
         comment = name + " with the email, " + email + \
             ", sent the following message:\n\n" + comment
-        send_mail(subject, comment, settings.DEFAULT_FROM_EMAIL, [email])
+        send_mail(subject, comment, settings.DEFAULT_FROM_EMAIL, [settings.DEFAULT_FROM_EMAIL])
 
         message = 'Thank you! I will get back to you as soon as I can!'
-
+        form = ContactForm()
         context = {'form': form, 'message': message}
     else:
         context = {'form': form}

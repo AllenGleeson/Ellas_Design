@@ -57,6 +57,27 @@ footer {
     border-top: 1px solid white;
 }
 
+footer h3 {
+    margin-top: 50px;
+}
+
+footer a {
+    text-decoration: none !important;
+    color: white;
+}
+
 .mylogo {
     font-size: 3rem;
+}
+
+@media only screen and (max-width: 500px) {
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .nav_buttons {
+        font-size: 1.4rem;
+    }
 }

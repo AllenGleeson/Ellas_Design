@@ -1,7 +1,7 @@
 
 Hey {{ order.full_name }}!
 
-Thank you so much for purchase and support!
+Thank you so much for your purchase and support!
 
 This is a confirmation of your order from Ella Moya. Your order information is below:
 

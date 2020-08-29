@@ -1,5 +1,6 @@
 .card {
     margin: 1rem !important;
+    min-height: 440px !important;
 }
 
 a {
@@ -29,4 +30,14 @@ a {
 
 .category-badge {
     font-size: 2rem;
+}
+
+.quantity-group {
+    min-width: 115px;
+}
+
+@media only screen and (max-width: 700px) {
+    .category-badge {
+        font-size: 1.2rem;
+    }
 }

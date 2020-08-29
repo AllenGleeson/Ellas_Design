@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" type="text/css" href="{% static 'about/about.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'about/css/about.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -10,41 +10,44 @@
     <div class="row">
         <div class="col">
             <h1 class="text-center mt-5">About me</h1>
-            <p class="aboutme text-center m-2">There was a time when he would have embraced the change that was coming.
-                In
-                his
-                youth, he
-                sought adventure and the unknown,
-                but that had been years ago. He wished he could go back and learn to find the excitement that came with
-                change
-                but it was useless.
-                That curiosity had long left him to where he had come to loathe anything that put him out of his comfort
-                zone.
+            <p class="aboutme text-center m-2">My name is Ella, I’m studying Textile Surface Design for fashion in NCAD.
+                I love colour and try to incorporate as much colour as I can in my work. I’m selling my designs as
+                scarves
+                and bandanas. I would say my aesthetic is playful, pastel and girly! Most of my work is inspired by
+                nature. At the moment my designs are available in Om Diva Boutique on Drury St.
             </p>
         </div>
     </div>
 
-    <div class="row d-flex aboutme_details">
+    <div class="row d-flex aboutme_details mt-3">
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <ul>
-                <li>Based in: Ireland</li>
-                <li>College: Ireland</li>
-                <li>Based in: Ireland</li>
-            </ul>
+            <div>
+                <div>
+                    <a
+                        href="https://www.google.com/maps/place/Dublin/@53.3244021,-6.3157432,25059m/data=!3m2!1e3!4b1!4m5!3m4!1s0x48670e80ea27ac2f:0xa00c7a9973171a0!8m2!3d53.3498053!4d-6.2603097">Based
+                        in: Dublin, Ireland</a>
+                </div>
+
+                <div>
+                    <a href="https://www.ncad.ie/">College: NCAD</a>
+                </div>
+
+            </div>
         </div>
 
-
         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <ul class="fa-ul">
-                <li>
-                    <i class="fa-li fab fa-instagram"></i>
-                    <p>Instagram</p>
-                </li>
-                <li>
-                    <i class="fa-li fa fa-envelope-square"></i>
-                    <p>Email</p>
-                </li>
-            </ul>
+            <div>
+                <div>
+                    <a href="https://www.instagram.com/ellamoyadesign/">
+                        <p><span class="fa fa-instagram" aria-hidden="true"></span>
+                        @ellamoyadesign</p>
+                    </a>
+                </div>
+                <div>
+                    <p><span class="fa fa-envelope-square" aria-hidden="true"></span>ella.moya.design@gmail.com
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
