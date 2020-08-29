@@ -195,7 +195,7 @@ AWS_DEFAULT_ACL = None
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+STATIC_URL = ''
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
