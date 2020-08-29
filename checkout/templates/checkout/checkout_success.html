@@ -8,9 +8,11 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <!-- Displays the order information -->
         <div class="col-12">
             <h2>Order successfully processed!</h2>
-            <p>Your order number is {{ order.order_number }}. A confirmation email will be sent to {{ order.email }}.</p>
+            <p>Your order number is {{ order.order_number }}. A confirmation email will be sent to {{ order.email }}.
+            </p>
         </div>
         <div class="col-12 col-lg-7">
             <div class="order-confirmation-wrapper p-2 border">
@@ -178,22 +180,14 @@
         </div>
     </div>
     <div class="row">
+        <!-- Back to shop -->
         <div class="col-12 col-lg-7 text-right">
-            {% if from_profile %}
-            <a href="{% url 'profile' %}" class="btn button_colors rounded-0 my-2">
-                <span class="icon mr-2">
-                    <i class="fas fa-angle-left"></i>
-                </span>
-                <span class="text-uppercase">Back to Profile</span>
-            </a>
-            {% else %}
             <a href="{% url 'products' %}" class="btn button_colors rounded-0 my-2">
                 <span class="icon mr-2">
                     <i class="fas fa-chevron-left"></i>
                 </span>
                 <span class="text-uppercase">Keep Shopping!</span>
             </a>
-            {% endif %}
         </div>
     </div>
 </div>

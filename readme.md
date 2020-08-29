@@ -1,10 +1,10 @@
 # Ellas Design
 
-Ellas Design is a Django web app to sell clothing from Ella Moya. The user can browse the products and add then to cart where they can checkout and pay using Stripe Payments. They can also create a profile to store their delivery information and see their order history. The owner will be able to add, edit and delete products.
+Ellas Design is a full stack Django web app to sell clothing from Ella Moya. The user can browse the products and add them to cart where they can checkout and pay using Stripe Payments. They can also create a profile to store their delivery information and see their order history. The owner will be able to add, edit and delete products.
 
-I made the website for someone I know so I had extra motivation but the goal was to use the django framework and ultimately for the designer to be able to sell her products. I also use JS and Jquery. The site is a series of Django apps with their own js and css.
+I made the website for someone I know so I had extra motivation but the goal was to use the django framework and ultimately for the designer to be able to sell her products. I also use JS and Jquery . The site is a series of Django apps with their own js and css.
 
-Here is a link to the published site on Heroku: https://lazy-hunger.herokuapp.com/
+Here is a link to the published site on Heroku: https://ella-moya.herokuapp.com/
 
 ## UX
 
@@ -133,7 +133,7 @@ It will consist of 7 main apps: Home, About, Contact, Shop, Bag, Checkout and Pr
 ### Skeleton
 
 I created some wireframes for the website which are in this repository:
-https://github.com/AllenGleeson/Lazy-Hunger/tree/master/wireframes
+https://github.com/AllenGleeson/Ellas_Design/blob/master/site_info/wireframes
 
 ### Surface
 
@@ -141,7 +141,7 @@ The look for the website was based partially on the designers vision for the sit
 
 ## Features
 
-Bootstrap 5: I user their cards and grid system
+- Bootstrap 5: I user their cards and grid system
 https://blog.getbootstrap.com/
 
 - A Shop
@@ -150,7 +150,7 @@ https://blog.getbootstrap.com/
 
 ## Technologies Used
 
-This project used Django, Bootstrap 5, HTML5 & CSS3, JS, Jquery, Python3.
+This project used Django, Bootstrap 5, HTML5 & CSS3, JS, Jquery, Python3, PostgresSQL.
 Github is used for version control and the website is hosted on Heroku.
 
 Django Framework:
@@ -170,7 +170,7 @@ https://dashboard.heroku.com/
 
 
 ### My database:
-https://user-images.githubusercontent.com/3257875/89083268-657e2400-d388-11ea-806e-3436bf34a718.png
+https://github.com/AllenGleeson/Ellas_Design/blob/master/site_info/database_schema/models-graphs.png
 
 ## Testing
 
@@ -178,7 +178,7 @@ Testing was done with Chrome DevTools and Visual Studio Codes debug mode to crea
 The project was tested in different screen sizes and will be mobile friendly with help from Bootstrap 5.
 
 Below I have some manual testing done through the site:
-https://github.com/AllenGleeson/Lazy-Hunger/tree/master/Testing
+https://github.com/AllenGleeson/Ellas_Design/blob/master/site_info/testing
 
 ## Deployment
 
@@ -187,7 +187,7 @@ Going to Heroku and creating a new Heroku App with the projects name. Then conne
 manual deploy, ensuring to have the Procile and requirements.txt required to run the project on Heroku.
 https://devcenter.heroku.com/articles/github-integration
 
-Site is published at: https://lazy-hunger.herokuapp.com/
+Site is published at: https://ella-moya.herokuapp.com/
 
 ### Content
 
@@ -195,7 +195,7 @@ Site is published at: https://lazy-hunger.herokuapp.com/
 
 ### Media
 
-Media will be added by the site owner.
+Media will be added by the site owner when adding new products.
 
 ### Future Additions
 
@@ -207,6 +207,6 @@ Credit to Code Institute for the help throughout and to their Boutique website f
 https://github.com/ckz8780/boutique_ado_v1/tree/933797d5e14d6c3f072df31adf0ca6f938d02218
 
 
-### Acknowledgments
+### Acknowledgements
 
 A big thanks also to my mentor through these projects. He was a big help. Reuben Farrente

@@ -2,7 +2,7 @@
 /* Increment item quantity */
 $(".increment-qty").click(function () {
     console.log("increment");
-    let quantity =  $(this).closest($(".form-group")).find(".qty_input");
+    let quantity = $(this).closest($(".form-group")).find(".qty_input");
     let value = quantity.val();
     if (value >= 99) {
         return;
@@ -15,7 +15,7 @@ $(".increment-qty").click(function () {
 /* Decrement item quantity */
 $(".decrement-qty").click(function () {
     console.log("decrement");
-    let quantity =  $(this).closest($(".form-group")).find(".qty_input");
+    let quantity = $(this).closest($(".form-group")).find(".qty_input");
     let value = quantity.val();
     if (value < 2) {
         return;
@@ -29,16 +29,3 @@ $(".decrement-qty").click(function () {
 $('.update-link').click(function () {
     this.parentElement.getElementsByTagName('form')[0].submit();
 })
-
-/* // Remove item and reload on click
-$('.remove-item').click(function () {
-    var csrfToken = "{{ csrf_token }}";
-    var itemId = $(this).attr('id').split('remove_')[1];
-    var url = `/bag/remove/${itemId}/`;
-    var data = { 'csrfmiddlewaretoken': csrfToken };
-    console.log(csrfToken);
-    $.post(url, data)
-        .done(function () {
-            location.reload();
-        });
-}) */

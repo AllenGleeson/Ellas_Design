@@ -1,2 +1,1 @@
-release: python manage.py migrate
-web: gunicorn web_project.wsgi:application
+web: gunicorn ella-moya.wsgi:application

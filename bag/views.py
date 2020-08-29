@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 
 from products.models import Product
 
-# Create your views here.
-
 
 def view_bag(request):
     """ A view that renders the bag contents page """
@@ -34,7 +32,6 @@ def adjust_bag(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
-    print(quantity)
     if quantity > 0:
         bag[item_id] = quantity
     else:

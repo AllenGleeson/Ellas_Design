@@ -1,6 +1,6 @@
 
 
-
+// Get stripe keys and create the card
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
@@ -33,6 +33,7 @@ card.addEventListener('change', function (event) {
 });
 
 // Handle form submit
+// On submit confirms Stripe Payment
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {

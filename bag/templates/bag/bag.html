@@ -23,6 +23,7 @@
                         </tr>
                     </thead>
 
+                    <!-- Displays the bag items and quantity for which the user can change -->
                     {% for item in bag_items %}
                     <tr>
                         <td class="p-3 w-25">
@@ -84,12 +85,14 @@
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
+                            <!-- Back to the shop -->
                             <a href="{% url 'products' %}" class="btn btn-outline-black button_colors rounded-0 btn-lg">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
+                            <!-- Proceeds to the Checkout app -->
                             <a href="{% url 'checkout' %}" class="btn btn-black button_colors rounded-0 btn-lg">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
@@ -101,6 +104,7 @@
                 </table>
             </div>
             {% else %}
+            <!-- If the bag is empty -->
             <p class="lead mb-5">Your bag is empty.</p>
             <a href="{% url 'products' %}" class="btn btn-outline-black button_colors rounded-0 btn-lg">
                 <span class="icon">

@@ -8,6 +8,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <!-- Creates a tab for each category so the user can click one to show only that category -->
         <div class="col text-center mt-3">
             {% if current_category %}
             <h4 class="mb-4">{{current_category}}</h4>
@@ -25,46 +26,53 @@
     </div>
 
     <div class="row">
-        {% for product in products %}
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <div class="card">
-                <a href="{% url 'view_product' product.id %}">
-                    {% if product.image %}
-                    <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="Card image cap">
-                    {% else %}
-                    <img class="card-img-top" src="{% static 'images/placeholder.jpg'%}" alt="Card image cap">
-                    {% endif %}
-                    <div class="card-body text-dark">
-                        <h5 class="card-title">{{product.name}}</h5>
-                        <p class="card-text">{{product.category.friendly_name}}</p>
-                        <p>€{{product.price}}</p>
-                    </div>
-                </a>
+        <!-- Creates the product cards -->
+        {% if product %}
+            {% for product in products %}
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                <div class="card">
+                    <a href="{% url 'view_product' product.id %}">
+                        {% if product.image %}
+                        <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="Card image cap">
+                        {% else %}
+                        <img class="card-img-top" src="{% static 'images/placeholder.jpg'%}" alt="Card image cap">
+                        {% endif %}
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text">{{product.category.friendly_name}}</p>
+                            <p>€{{product.price}}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
 
 
-        {% if forloop.counter|divisibleby:1 %}
-        <div class="col-12 d-sm-none mb-5">
-            <hr>
-        </div>
+            {% if forloop.counter|divisibleby:1 %}
+            <div class="col-12 d-sm-none mb-5">
+                <hr>
+            </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                <hr>
+            </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:3 %}
+            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                <hr>
+            </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:4 %}
+            <div class="col-12 d-none d-xl-block mb-5">
+                <hr>
+            </div>
+            {% endif %}
+            {% endfor%}
+
+        {% else %}
+        <!-- If no product then displays this message -->
+            <h1>There are no products currently</h1>
         {% endif %}
-        {% if forloop.counter|divisibleby:2 %}
-        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-            <hr>
-        </div>
-        {% endif %}
-        {% if forloop.counter|divisibleby:3 %}
-        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-            <hr>
-        </div>
-        {% endif %}
-        {% if forloop.counter|divisibleby:4 %}
-        <div class="col-12 d-none d-xl-block mb-5">
-            <hr>
-        </div>
-        {% endif %}
-        {% endfor%}
     </div>
 </div>
 

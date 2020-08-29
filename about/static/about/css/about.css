@@ -1,3 +1,5 @@
+/* Bio and heading */
+
 h1 {
     margin-top: 150px;
 }
@@ -20,6 +22,8 @@ a:hover {
     text-decoration: underline !important;
     color: #f993be !important;
 }
+
+/* Media queries */
 
 @media only screen and (max-width: 800px) {
     .aboutme {

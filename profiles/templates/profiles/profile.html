@@ -9,6 +9,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <!-- Users delivery information -->
         <h1 class="mb-4">Your Profile: {{ request.user }}</h1>
         <div class="col-12 col-lg-6">
             <h2 class="mb-4">Delivery Information:</h2>
@@ -22,6 +23,7 @@
             </form>
         </div>
 
+        <!-- Users order history -->
         <div class="col-12 col-lg-6">
             <h2 class="mb-4">Order History:</h2>
             <div class="order-history table-responsive">

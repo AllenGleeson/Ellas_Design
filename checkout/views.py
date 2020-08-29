@@ -18,10 +18,12 @@ import json
 
 
 def checkout(request):
+    """ View to checkout """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
+        """ Saves the order """
         bag = request.session.get('bag', {})
 
         form_data = {
@@ -64,15 +66,14 @@ def checkout(request):
                 'checkout/confirmation_email/confirmation_email_body.txt',
                 {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
-            send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [order.email])
+            send_mail(subject, body,
+                      settings.DEFAULT_FROM_EMAIL, [order.email])
 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
-        else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
     else:
+        """ Creates Stripe payment intent when arriving on the checkout page """
         bag = request.session.get('bag', {})
         if not bag:
             return redirect(reverse('products'))
@@ -105,10 +106,6 @@ def checkout(request):
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
-
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
@@ -147,6 +144,7 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
+    # Deletes the current bag
     if 'bag' in request.session:
         del request.session['bag']
 
