@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,9 +106,17 @@ WSGI_APPLICATION = 'web_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-if 'DATABASE_URL' in os.environ:
+if 'DATABASE_ENDPOINT' in os.environ:
+    print(os.environ.get('DATABASE_URL'))
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get("DATABASE_NAME"),
+            'USER': os.environ.get("DATABASE_USER"),
+            'PASSWORD': os.environ.get("DATABASE_PASS"),
+            'HOST': os.environ.get("DATABASE_ENDPOINT"),
+            'PORT': os.environ.get("DATABASE_PORT"),
+        }
     }
 else:
     DATABASES = {

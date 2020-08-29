@@ -9,19 +9,16 @@
 <div class="container">
     <div class="row">
         <h1 class="text-center">Product Management</h1>
-        <div class="col-sm-12 col-md-6 text-right">
-            <a href="{% url 'create_product' %}" class="btn btn-outline-black button_colors rounded-0 btn-lg w-50">
+        <div class="col-sm-12 col-md-6">
+            <a href="{% url 'create_product' %}" class="btn btn-outline-black button_colors rounded-0 btn-lg m-2">
                 <span>Create Product</span>
             </a>
-        </div>
-
-        <div class="col-sm-12 col-md-6">
-            <a href="{% url 'create_category' %}" class="btn btn-outline-black button_colors rounded-0 btn-lg w-50">
+            <a href="{% url 'create_category' %}" class="btn btn-outline-black button_colors rounded-0 btn-lg m-2">
                 <span>Create Category</span>
             </a>
         </div>
 
-        <div class="col-12">
+        <div class="col-sm-12 col-md-6">
             <h3 class="text-center mt-3">Product Details:</h3>
             <ul class="m-2">
                 <li>Number of Products: {{ product_count }}</li>
