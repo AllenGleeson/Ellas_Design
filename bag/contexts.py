@@ -5,7 +5,7 @@ from products.models import Product
 
 
 def bag_contents(request):
-
+    """ Bag is stored in the session """
     bag_items = []
     total = 0
     product_count = 0

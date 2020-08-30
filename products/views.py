@@ -40,9 +40,6 @@ def view_product(request, product_id):
     return render(request, 'products/view_product.html', context)
 
 
-""" Product Management """
-
-
 @login_required
 def product_management(request):
     """ A view to show the product management page """
@@ -122,8 +119,6 @@ def edit_product(request, product_id):
         if form.is_valid():
             form.save()
             return redirect(reverse('view_product', args=[product.id]))
-        else:
-            print("hi")
     else:
         form = ProductForm(instance=product)
 

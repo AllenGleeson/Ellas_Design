@@ -18,7 +18,7 @@ h1 {
     color: #000000 !important;
 }
 
-a:hover {
+.aboutme_details a:hover {
     text-decoration: underline !important;
     color: #f993be !important;
 }
