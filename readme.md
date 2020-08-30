@@ -202,7 +202,7 @@ Media will be added by the site owner when adding new products.
 
 ### Future Additions
 
-The ability for the user to be able to log in with other social media accounts like instagram etc. I also may add sorting for the products page but it isn't urgent for the client as there aren't an enormous amount of products at this time. A possible feature is to add reviews for the products. This would be simple enough to do.
+The ability for the user to be able to log in with other social media accounts like instagram etc. I also may add sorting for the products page but it isn't urgent for the client as there aren't an enormous amount of products at this time.
 
 ### Credits
 
