@@ -33,7 +33,7 @@ $(function () {
 
 $(".deleteItem").click(function () {
     let product_id = $(this).data("id");
-    
+
     alertify.confirm("Are you sure you want to delete this product?.",
         function () {
             $.ajax({
@@ -47,8 +47,12 @@ $(".deleteItem").click(function () {
                     alertify.error('Request failed:', data);
                 }
             });
-            
+
         },
         function () {
         });
 })
+
+function allow_quantity() {
+    $(".qty_input").prop('disabled', false);
+}

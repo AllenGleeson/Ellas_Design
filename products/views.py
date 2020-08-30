@@ -90,10 +90,10 @@ def create_category(request):
     categories = Category.objects.all()
 
     if request.method == 'POST':
-        form = CategoryForm(request.POST, request.FILES)
+        form = CategoryForm(request.POST)
         if form.is_valid():
-            product = form.save()
-            return redirect(reverse('view_product', args=[product.id]))
+            category = form.save()
+            return redirect(reverse('product_management'))
 
     else:
         form = CategoryForm()

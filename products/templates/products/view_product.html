@@ -37,7 +37,7 @@
                 <p>Buy now for: €{{product.price}}</p>
 
                 {% if product %}
-                    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <form onsubmit="allow_quantity()" lass="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
@@ -54,7 +54,7 @@
                                             </button>
                                         </div>
                                         <input class="form-control qty_input" type="number" name="quantity" value="1"
-                                            min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                            min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}" disabled>
                                         <div class="input-group-append">
                                             <button type="button" class="increment-qty btn btn-black rounded-0"
                                                 data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
