@@ -29,3 +29,7 @@ $(".decrement-qty").click(function () {
 $('.update-link').click(function () {
     this.parentElement.getElementsByTagName('form')[0].submit();
 })
+
+function allow_quantity() {
+    $(".qty_input").prop('disabled', false);
+}

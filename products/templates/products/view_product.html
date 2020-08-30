@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_filters %}
 
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
@@ -91,20 +92,27 @@
         </div>
     </div>
 
-    <div class="row">
+    <!-- User reviews -->
+    <div class="row mt-5">
+        <h3>Reviews:</h3>
+        <hr>
         {% if reviews %}
             {% for review in reviews %}
             <div class="col-12">
-                <h3>{{ review.name }}</h3>
-                <hr>
+                <h4>{{ review.name }}</h4>
                 <p>{{ review.review }}</p>
+                <hr>
             </div>
             {% endfor %}
         {% else %}
+            <h4>No reviews right now</h4>
         {% endif %}
-
+        
+        <!-- If logged in the user can add reviews -->
+        {% if request.user.is_authenticated %}
         <div class="col-12">
-            <form method="POST" action="submit" class="form mb-2" enctype="multipart/form-data">
+            <h3>Add your review:</h3>
+            <form id="review_form" method="POST" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in user_review %}
                     {{ field | as_crispy_field }}
@@ -114,7 +122,7 @@
                 </div>
             </form>
         </div>
-
+        {% endif %}
     </div>
 </div>
 {% endblock %}

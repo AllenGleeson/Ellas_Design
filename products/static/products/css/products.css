@@ -36,6 +36,19 @@ a {
     min-width: 115px;
 }
 
+/* Reviews */
+
+#id_review{
+    width: 80%;
+    height: 150px;
+}
+
+#review_form{
+    width: 100%;
+}
+
+/* Media Queries */
+
 @media only screen and (max-width: 700px) {
     .category-badge {
         font-size: 1.2rem;

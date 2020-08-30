@@ -29,12 +29,15 @@ def view_product(request, product_id):
     """ A view to show the product and any reviews """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = get_object_or_404(Review.objects.all().filter(product=product))
+    reviews = Review.objects.all().filter(product=product)
 
     if request.method == "POST":
         user_review = ReviewForm(request.POST)
         if user_review.is_valid():
+            user_review.instance.product = product
             user_review.save()
+            user_review = ReviewForm()
+            return redirect(reverse('view_product', args=[product.id]))
     else:
         user_review = ReviewForm()
 
