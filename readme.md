@@ -98,37 +98,36 @@ The goal of the website if for users to be able to browse the website and choose
 Also for the user to create a profile that can show them their order history and save their delivery information if they wish.
 It will consist of 7 main apps: Home, About, Contact, Shop, Bag, Checkout and Profiles.
 
-#### Navigation -
-    Shop - The shop page will display all the products and give the option of different categories to search by.
-    About - The about page gives a brief description of the designer and links to their social media.
-    Contact - Contact page will allow a user to send the designer a comment. Wether that be just a message or a issue they have with the site or a purchase.
+#### Navigation
+- Shop: The shop page will display all the products and give the option of different categories to search by.
+- About: The about page gives a brief description of the designer and links to their social media.
+- Contact: Contact page will allow a user to send the designer a comment. Wether that be just a message or a issue they have with the site or a purchase.
+- Profile: on click displays Log In/Log Out and Register(For Users) and also Product Management(for the site owner).
+- Bag: on click brings to the bag page and display the bag contents to the user where they can change the quantity, remove the product or proceed to checkout.
 
-    Profile - on click displays Log In/Log Out and Register(For Users) and also Product Management(for the site owner).
-    Bag - on click brings to the bag page and display the bag contents to the user where they can change the quantity, remove the product or proceed to checkout.
+#### Home
+The Home page will have a background image with a message directing the user to the shop and a Shop Now button.
 
-#### Home -
-    The Home page will have a background image with a message directing the user to the shop and a Shop Now button.
+#### About
+The About page will be show a description of the designer with some other information about them and their social media link.
 
-#### About -
-    The About page will be show a description of the designer with some other information about them and their social media link.
+#### Contact
+From here the user can enter a subject, email and comment and send it to the designer for feedback or issues with their payment.
 
-#### Contact -
-    From here the user can enter a subject, email and comment and send it to the designer for feedback or issues with their payment.
+#### Shop
+The Shop page will display all the products in cards which an image, name, catagory and price. From here the user can select the catagory to display and click on a product that interests them.
+Clicking on that product will display that products details to the user. From here they can increase and decrease the quantity and then add that item to their shopping bag.
+The Admin will be able to edit and delete products from here.
 
-#### Shop -
-    The Shop page will display all the products in cards which an image, name, catagory and price. From here the user can select the catagory to display and click on a product that interests them.
-    Clicking on that product will display that products details to the user. From here they can increase and decrease the quantity and then add that item to their shopping bag.
-    The Admin will be able to edit and delete products from here.
+#### Bag
+The bag will store any products the user added to their bag and give the option to change the quantity or remove the item from their bag before proceeding to checkout.
 
-#### Bag -
-    The bag will store any products the user added to their bag and give the option to change the quantity or remove the item from their bag before proceeding to checkout.
+#### Checkout
+Checkout displays a form for the user to enter their delivery and payment information. It also displays what is currently in their bag.
+When the user wants to checkout it uses Stripes Payment system to confirm the payment and sends a confirmation email to the user.
 
-#### Checkout -
-    Checkout displays a form for the user to enter their delivery and payment information. It also displays what is currently in their bag.
-    When the user wants to checkout it uses Stripes Payment system to confirm the payment and sends a confirmation email to the user.
-
-#### Profiles -
-    The profiles app deals with storing the users previous orders and delivery information. A profile is not required to be back to make a purchase. The user can update their delivery information from their profile.
+#### Profiles
+The profiles app deals with storing the users previous orders and delivery information. A profile is not required to be back to make a purchase. The user can update their delivery information from their profile.
     
 ### Skeleton
 
@@ -141,17 +140,16 @@ The look for the website was based partially on the designers vision for the sit
 
 ## Features
 
-- Bootstrap 5: I user their cards and grid system
-https://blog.getbootstrap.com/
-
+- Bootstrap 5: Cards, grid system and classes
 - A Shop
 - Shopping Bag
 - Checkout
 
 ## Technologies Used
 
-This project used Django, Bootstrap 5, HTML5 & CSS3, JS, Jquery, Python3, PostgresSQL.
-Github is used for version control and the website is hosted on Heroku.
+This project used Django, Bootstrap 5, HTML5 & CSS3, JS, Jquery, Python3, PostgresSQL and SQLite for development.
+The project was created on vsCode and Github is used for version control.
+The website is hosted on Heroku: https://ella-moya.herokuapp.com/
 
 Django Framework:
 https://www.djangoproject.com/
@@ -170,11 +168,12 @@ https://dashboard.heroku.com/
 
 
 ### My database:
+Used PyGraph to create a database schema:
 https://github.com/AllenGleeson/Ellas_Design/blob/master/site_info/database_schema/models-graphs.png
 
 ## Testing
 
-Testing was done with Chrome DevTools and Visual Studio Codes debug mode to create breakpoints to view what I was changing and to test.
+Testing was done with Chrome DevTools and Visual Studio Codes debug mode to create breakpoints to view what I was changing and to test. Used Lighthouse on Chrome DevTools to generate a report and see performance.
 The project was tested in different screen sizes and will be mobile friendly with help from Bootstrap 5.
 
 Below I have some manual testing done through the site:
