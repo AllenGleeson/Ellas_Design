@@ -1,11 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category
+from .models import Product, Category, Review
 from checkout.models import Order
-from .forms import ProductForm, CategoryForm
-
-
-""" Products """
+from .forms import ProductForm, CategoryForm, ReviewForm
 
 
 def get_products(request):
@@ -29,12 +26,22 @@ def get_products(request):
 
 
 def view_product(request, product_id):
-    """ A view to show the product """
+    """ A view to show the product and any reviews """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = get_object_or_404(Review.objects.all().filter(product=product))
+
+    if request.method == "POST":
+        user_review = ReviewForm(request.POST)
+        if user_review.is_valid():
+            user_review.save()
+    else:
+        user_review = ReviewForm()
 
     context = {
         'product': product,
+        'reviews': reviews,
+        'user_review': user_review
     }
 
     return render(request, 'products/view_product.html', context)
