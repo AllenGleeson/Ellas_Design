@@ -99,11 +99,17 @@ Also for the user to create a profile that can show them their order history and
 It will consist of 7 main apps: Home, About, Contact, Shop, Bag, Checkout and Profiles.
 
 #### Navigation
+<<<<<<< HEAD
 - Shop: The shop page will display all the products and give the option of different categories to search by.
 - About: The about page gives a brief description of the designer and links to their social media.
 - Contact: Contact page will allow a user to send the designer a comment. Wether that be just a message or a issue they have with the site or a purchase.
 - Profile: on click displays Log In/Log Out and Register(For Users) and also Product Management(for the site owner).
 - Bag: on click brings to the bag page and display the bag contents to the user where they can change the quantity, remove the product or proceed to checkout.
+=======
+    Shop - The shop page will display all the products and give the option of different categories to search by.
+    About - The about page gives a brief description of the designer and links to their social media.
+    Contact - Contact page will allow a user to send the designer a comment. Wether that be just a message or a issue they have with the site or a purchase.
+>>>>>>> d043a70d33822b317406fd0a8aad0cfd29c89acc
 
 #### Home
 The Home page will have a background image with a message directing the user to the shop and a Shop Now button.
