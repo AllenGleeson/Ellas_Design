@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'ella-moya.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-if USE_SQLITE:
+if 'USE_SQLITE' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -216,7 +216,7 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 
 # Email
 
-if USE_CONSOLE:
+if 'USE_CONSOLE' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 else:
