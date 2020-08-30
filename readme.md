@@ -98,7 +98,7 @@ The goal of the website if for users to be able to browse the website and choose
 Also for the user to create a profile that can show them their order history and save their delivery information if they wish.
 It will consist of 7 main apps: Home, About, Contact, Shop, Bag, Checkout and Profiles.
 
-#### Navigation -
+#### Navigation
     Shop - The shop page will display all the products and give the option of different categories to search by.
     About - The about page gives a brief description of the designer and links to their social media.
     Contact - Contact page will allow a user to send the designer a comment. Wether that be just a message or a issue they have with the site or a purchase.
