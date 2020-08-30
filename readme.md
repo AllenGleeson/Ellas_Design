@@ -182,8 +182,11 @@ https://github.com/AllenGleeson/Ellas_Design/blob/master/site_info/testing
 
 ## Deployment
 
-I added all my code and images to github and then deployed my project through Heroku.
-Going to Heroku and creating a new Heroku App with the projects name. Then connecting the app to the code on github and doing a
+I used vsCode to create the website. With it it gives some nice tools to add all my code and images to github and then deployed my project through Heroku.
+On Github I created a master branch and then connected to it through vsCode. From there when I want to commit code I click on source control and 'stage all changes'.
+I then give a commit message and click to commit. After it has been commited and I am happy with it I click 'sysnchronize changes' at the bottom of the window. This pushes my code to github. My gitignore file was created after creating a new django project.
+
+To deploy to Heroku I create a new Heroku App with the projects name. I set all the required enviroment variable and then connect the app to the code on github by doing a
 manual deploy, ensuring to have the Procile and requirements.txt required to run the project on Heroku.
 https://devcenter.heroku.com/articles/github-integration
 
