@@ -117,6 +117,7 @@ From here the user can enter a subject, email and comment and send it to the des
 #### Shop
 The Shop page will display all the products in cards which an image, name, catagory and price. From here the user can select the catagory to display and click on a product that interests them.
 Clicking on that product will display that products details to the user. From here they can increase and decrease the quantity and then add that item to their shopping bag.
+The user can also see reviews and add their own if they are logged in.
 The Admin will be able to edit and delete products from here.
 
 #### Bag
@@ -169,7 +170,7 @@ https://dashboard.heroku.com/
 
 ### My database:
 Used PyGraph to create a database schema:
-https://github.com/AllenGleeson/Ellas_Design/blob/master/site_info/database_schema/models-graphs.png
+https://github.com/AllenGleeson/Ellas_Design/blob/master/site_info/database_schema/graph-models.png
 
 ## Testing
 
