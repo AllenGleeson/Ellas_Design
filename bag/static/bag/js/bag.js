@@ -27,6 +27,7 @@ $(".decrement-qty").click(function () {
 
 // Update quantity on click
 $('.update-link').click(function () {
+    allow_quantity();
     this.parentElement.getElementsByTagName('form')[0].submit();
 })
 
