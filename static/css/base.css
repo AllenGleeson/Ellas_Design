@@ -17,6 +17,7 @@ body {
 .navbar {
     background-color: #f993be !important;
     border-bottom: 2px solid #fff !important;
+    z-index: 2;
 }
 
 .nav-link {
@@ -26,6 +27,7 @@ body {
 
 .nav-item:hover {
     border: 2px solid #ffffff69;
+    background-color: #ffa8cd;
 }
 
 #logo {
