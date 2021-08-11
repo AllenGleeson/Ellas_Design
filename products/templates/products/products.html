@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
 {% endblock %}
@@ -10,15 +11,12 @@
     <div class="row">
         <!-- Creates a tab for each category so the user can click one to show only that category -->
         <div class="col text-center mt-3">
-            {% if current_category %}
-            <h4 class="mb-4">{{current_category}}</h4>
-            {% endif %}
-            <a class="category-badge text-decoration-none" href="{% url 'products' %}">
-                <span class="p-2 mt-2 button_colors rounded-0 border">All</span>
+            <a class="category-badge text-decoration-none {% if current_category == None %} catagory_style{% else %} selected_catagory_style{% endif %}" href="{% url 'products' %}">
+                <span class="p-2 mt-2 button_colors rounded border">All</span>
             </a>
             {% for c in categories %}
-            <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                <span class="p-2 mt-2 button_colors rounded-0 border">{{ c.friendly_name }}</span>
+            <a class="category-badge text-decoration-none{% if current_category == c.name %} catagory_style{% else %} selected_catagory_style{% endif %}" href="{% url 'products' %}?category={{ c.name }}">
+                <span class="p-2 mt-2 button_colors rounded border">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             <hr class="mb-1">
@@ -32,11 +30,8 @@
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                 <div class="card">
                     <a href="{% url 'view_product' product.id %}">
-                        {% if product.image %}
-                        <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="Card image cap">
-                        {% else %}
-                        <img class="card-img-top" src="{% static 'images/placeholder.jpg'%}" alt="Card image cap">
-                        {% endif %}
+                        <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="Card image cap"
+                             onerror="this.src='{% static 'images/placeholder.jpg'%}'">
                         <div class="card-body text-dark">
                             <h5 class="card-title">{{product.name}}</h5>
                             <p class="card-text">{{product.category.friendly_name}}</p>

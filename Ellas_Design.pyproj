@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a93a9e45-5ac4-4af4-bdbb-1433951f7b4f}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <DjangoSettingsModule>ella-moya.settings</DjangoSettingsModule>
+    <TestFramework>Pytest</TestFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="about\static\about\css\about.css" />
+    <Content Include="about\static\about\images\ella_design_background.jpg" />
+    <Content Include="about\templates\about\about.html" />
+    <Content Include="bag\static\bag\css\bag.css" />
+    <Content Include="bag\static\bag\js\bag.js" />
+    <Content Include="bag\templates\bag\bag.html" />
+    <Content Include="checkout\static\checkout\js\checkout.js" />
+    <Content Include="checkout\templates\checkout\checkout.html" />
+    <Content Include="checkout\templates\checkout\checkout_success.html" />
+    <Content Include="checkout\templates\checkout\confirmation_email\confirmation_email_body.txt" />
+    <Content Include="contact\static\contact\contact.css" />
+    <Content Include="contact\templates\contact\contact.html" />
+    <Content Include="ella-moya\.env">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="home\static\home\css\style.css" />
+    <Content Include="home\static\home\images\home.png" />
+    <Content Include="home\templates\home\index.html" />
+    <Content Include="products\static\products\css\products.css" />
+    <Content Include="products\static\products\js\view_product.js" />
+    <Content Include="products\templates\products\create_category.html" />
+    <Content Include="products\templates\products\create_product.html" />
+    <Content Include="products\templates\products\edit_product.html" />
+    <Content Include="products\templates\products\manage.html" />
+    <Content Include="products\templates\products\products.html" />
+    <Content Include="products\templates\products\view_product.html" />
+    <Content Include="profiles\static\profiles\css\profiles.css" />
+    <Content Include="profiles\templates\profiles\profile.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="site_info\database_schema\graph-models.png" />
+    <Content Include="site_info\wireframes\ellas_design_wireframes_update.bmpr" />
+    <Content Include="static\css\base.css" />
+    <Content Include="static\images\logo.png" />
+    <Content Include="static\images\placeholder.jpg" />
+    <Content Include="templates\allauth\account\account_inactive.html" />
+    <Content Include="templates\allauth\account\base.html" />
+    <Content Include="templates\allauth\account\email.html" />
+    <Content Include="templates\allauth\account\email\email_confirmation_message.txt" />
+    <Content Include="templates\allauth\account\email\email_confirmation_signup_message.txt" />
+    <Content Include="templates\allauth\account\email\email_confirmation_signup_subject.txt" />
+    <Content Include="templates\allauth\account\email\email_confirmation_subject.txt" />
+    <Content Include="templates\allauth\account\email\password_reset_key_message.txt" />
+    <Content Include="templates\allauth\account\email\password_reset_key_subject.txt" />
+    <Content Include="templates\allauth\account\email_confirm.html" />
+    <Content Include="templates\allauth\account\login.html" />
+    <Content Include="templates\allauth\account\logout.html" />
+    <Content Include="templates\allauth\account\messages\cannot_delete_primary_email.txt" />
+    <Content Include="templates\allauth\account\messages\email_confirmation_sent.txt" />
+    <Content Include="templates\allauth\account\messages\email_confirmed.txt" />
+    <Content Include="templates\allauth\account\messages\email_deleted.txt" />
+    <Content Include="templates\allauth\account\messages\logged_in.txt" />
+    <Content Include="templates\allauth\account\messages\logged_out.txt" />
+    <Content Include="templates\allauth\account\messages\password_changed.txt" />
+    <Content Include="templates\allauth\account\messages\password_set.txt" />
+    <Content Include="templates\allauth\account\messages\primary_email_set.txt" />
+    <Content Include="templates\allauth\account\messages\unverified_primary_email.txt" />
+    <Content Include="templates\allauth\account\password_change.html" />
+    <Content Include="templates\allauth\account\password_reset.html" />
+    <Content Include="templates\allauth\account\password_reset_done.html" />
+    <Content Include="templates\allauth\account\password_reset_from_key.html" />
+    <Content Include="templates\allauth\account\password_reset_from_key_done.html" />
+    <Content Include="templates\allauth\account\password_set.html" />
+    <Content Include="templates\allauth\account\signup.html" />
+    <Content Include="templates\allauth\account\signup_closed.html" />
+    <Content Include="templates\allauth\account\snippets\already_logged_in.html" />
+    <Content Include="templates\allauth\account\verification_sent.html" />
+    <Content Include="templates\allauth\account\verified_email_required.html" />
+    <Content Include="templates\allauth\base.html" />
+    <Content Include="templates\allauth\socialaccount\authentication_error.html" />
+    <Content Include="templates\allauth\socialaccount\base.html" />
+    <Content Include="templates\allauth\socialaccount\connections.html" />
+    <Content Include="templates\allauth\socialaccount\login_cancelled.html" />
+    <Content Include="templates\allauth\socialaccount\messages\account_connected.txt" />
+    <Content Include="templates\allauth\socialaccount\messages\account_connected_other.txt" />
+    <Content Include="templates\allauth\socialaccount\messages\account_connected_updated.txt" />
+    <Content Include="templates\allauth\socialaccount\messages\account_disconnected.txt" />
+    <Content Include="templates\allauth\socialaccount\signup.html" />
+    <Content Include="templates\allauth\socialaccount\snippets\login_extra.html" />
+    <Content Include="templates\allauth\socialaccount\snippets\provider_list.html" />
+    <Content Include="templates\base.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="about\admin.py" />
+    <Compile Include="about\apps.py" />
+    <Compile Include="about\migrations\__init__.py" />
+    <Compile Include="about\models.py" />
+    <Compile Include="about\tests.py" />
+    <Compile Include="about\urls.py" />
+    <Compile Include="about\views.py" />
+    <Compile Include="about\__init__.py" />
+    <Compile Include="bag\admin.py" />
+    <Compile Include="bag\apps.py" />
+    <Compile Include="bag\contexts.py" />
+    <Compile Include="bag\migrations\__init__.py" />
+    <Compile Include="bag\models.py" />
+    <Compile Include="bag\templatetags\bagtools.py" />
+    <Compile Include="bag\templatetags\__init__.py" />
+    <Compile Include="bag\tests.py" />
+    <Compile Include="bag\urls.py" />
+    <Compile Include="bag\views.py" />
+    <Compile Include="bag\__init__.py" />
+    <Compile Include="checkout\admin.py" />
+    <Compile Include="checkout\apps.py" />
+    <Compile Include="checkout\forms.py" />
+    <Compile Include="checkout\migrations\__init__.py" />
+    <Compile Include="checkout\models.py" />
+    <Compile Include="checkout\tests.py" />
+    <Compile Include="checkout\urls.py" />
+    <Compile Include="checkout\views.py" />
+    <Compile Include="checkout\__init__.py" />
+    <Compile Include="contact\admin.py" />
+    <Compile Include="contact\apps.py" />
+    <Compile Include="contact\forms.py" />
+    <Compile Include="contact\migrations\__init__.py" />
+    <Compile Include="contact\models.py" />
+    <Compile Include="contact\tests.py" />
+    <Compile Include="contact\urls.py" />
+    <Compile Include="contact\views.py" />
+    <Compile Include="contact\__init__.py" />
+    <Compile Include="custom_storages.py" />
+    <Compile Include="ella-moya\asgi.py" />
+    <Compile Include="ella-moya\settings.py" />
+    <Compile Include="ella-moya\urls.py" />
+    <Compile Include="ella-moya\wsgi.py" />
+    <Compile Include="ella-moya\__init__.py" />
+    <Compile Include="home\admin.py" />
+    <Compile Include="home\apps.py" />
+    <Compile Include="home\migrations\__init__.py" />
+    <Compile Include="home\models.py" />
+    <Compile Include="home\tests.py" />
+    <Compile Include="home\urls.py" />
+    <Compile Include="home\views.py" />
+    <Compile Include="home\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="products\admin.py" />
+    <Compile Include="products\apps.py" />
+    <Compile Include="products\forms.py" />
+    <Compile Include="products\migrations\__init__.py" />
+    <Compile Include="products\models.py" />
+    <Compile Include="products\tests.py" />
+    <Compile Include="products\urls.py" />
+    <Compile Include="products\views.py" />
+    <Compile Include="products\__init__.py" />
+    <Compile Include="profiles\admin.py" />
+    <Compile Include="profiles\apps.py" />
+    <Compile Include="profiles\forms.py" />
+    <Compile Include="profiles\migrations\__init__.py" />
+    <Compile Include="profiles\models.py" />
+    <Compile Include="profiles\tests.py" />
+    <Compile Include="profiles\urls.py" />
+    <Compile Include="profiles\views.py" />
+    <Compile Include="profiles\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="about" />
+    <Folder Include="about\migrations" />
+    <Folder Include="about\static\" />
+    <Folder Include="about\static\about\" />
+    <Folder Include="about\static\about\css" />
+    <Folder Include="about\static\about\images" />
+    <Folder Include="about\templates\" />
+    <Folder Include="about\templates\about" />
+    <Folder Include="bag" />
+    <Folder Include="bag\migrations" />
+    <Folder Include="bag\static\" />
+    <Folder Include="bag\static\bag\" />
+    <Folder Include="bag\static\bag\css" />
+    <Folder Include="bag\static\bag\js" />
+    <Folder Include="bag\templates\" />
+    <Folder Include="bag\templates\bag" />
+    <Folder Include="bag\templatetags" />
+    <Folder Include="checkout" />
+    <Folder Include="checkout\migrations" />
+    <Folder Include="checkout\static\" />
+    <Folder Include="checkout\static\checkout\" />
+    <Folder Include="checkout\static\checkout\js" />
+    <Folder Include="checkout\templates\" />
+    <Folder Include="checkout\templates\checkout" />
+    <Folder Include="checkout\templates\checkout\confirmation_email" />
+    <Folder Include="contact" />
+    <Folder Include="contact\migrations" />
+    <Folder Include="contact\static\" />
+    <Folder Include="contact\static\contact" />
+    <Folder Include="contact\templates\" />
+    <Folder Include="contact\templates\contact" />
+    <Folder Include="ella-moya" />
+    <Folder Include="home" />
+    <Folder Include="home\migrations" />
+    <Folder Include="home\static\" />
+    <Folder Include="home\static\home\" />
+    <Folder Include="home\static\home\css" />
+    <Folder Include="home\static\home\images" />
+    <Folder Include="home\templates\" />
+    <Folder Include="home\templates\home" />
+    <Folder Include="products" />
+    <Folder Include="products\migrations" />
+    <Folder Include="products\static\" />
+    <Folder Include="products\static\products\" />
+    <Folder Include="products\static\products\css" />
+    <Folder Include="products\static\products\js" />
+    <Folder Include="products\templates\" />
+    <Folder Include="products\templates\products" />
+    <Folder Include="profiles" />
+    <Folder Include="profiles\migrations" />
+    <Folder Include="profiles\static\" />
+    <Folder Include="profiles\static\profiles\" />
+    <Folder Include="profiles\static\profiles\css" />
+    <Folder Include="profiles\templates\" />
+    <Folder Include="profiles\templates\profiles" />
+    <Folder Include="site_info\" />
+    <Folder Include="site_info\database_schema" />
+    <Folder Include="site_info\wireframes" />
+    <Folder Include="static\" />
+    <Folder Include="static\css" />
+    <Folder Include="static\images" />
+    <Folder Include="templates" />
+    <Folder Include="templates\allauth" />
+    <Folder Include="templates\allauth\account" />
+    <Folder Include="templates\allauth\account\email" />
+    <Folder Include="templates\allauth\account\messages" />
+    <Folder Include="templates\allauth\account\snippets" />
+    <Folder Include="templates\allauth\socialaccount" />
+    <Folder Include="templates\allauth\socialaccount\messages" />
+    <Folder Include="templates\allauth\socialaccount\snippets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.7</Version>
+      <Description>env (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

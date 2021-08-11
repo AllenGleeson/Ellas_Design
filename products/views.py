@@ -14,7 +14,7 @@ def get_products(request):
     if 'category' in request.GET:
         current_category = request.GET['category'].split(',')
         products = products.filter(category__name__in=current_category)
-        current_category = current_category[0].capitalize()
+        current_category = current_category[0]
 
     context = {
         'products': products,
