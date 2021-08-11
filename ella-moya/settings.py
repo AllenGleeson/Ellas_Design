@@ -117,7 +117,7 @@ WSGI_APPLICATION = 'ella-moya.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-if env('USE_SQLITE'):
+if 'USE_SQLITE' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
