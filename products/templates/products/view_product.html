@@ -165,25 +165,28 @@
             
         {% else %}
             <button type="button" class="reviews_collapible rounded shadow btn button_colors">Reviews: (0)</button>
-            <!-- If logged in the user can add reviews -->
-            {% if request.user.is_authenticated %}
-            <div class="col-12">
-                <h4 class="pt-4">Add your review:</h4>
-                <form id="review_form" method="POST" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in user_review %}
-                        {{ field | as_crispy_field }}
-                    {% endfor %}
-                    <div class="text-right">
-                        <button class="rounded shadow btn button_colors" type="submit">Add Review</button>
-                    </div>
-                </form>
+            <hr>
+            <div class="content">
+                <!-- If logged in the user can add reviews -->
+                {% if request.user.is_authenticated %}
+                <div class="col-12">
+                    <h4 class="pt-4">Add your review:</h4>
+                    <form id="review_form" method="POST" class="form mb-2" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in user_review %}
+                            {{ field | as_crispy_field }}
+                        {% endfor %}
+                        <div class="text-right">
+                            <button class="rounded shadow btn button_colors" type="submit">Add Review</button>
+                        </div>
+                    </form>
+                </div>
+                {% else %}
+                    <h4 class="mt-3">Please Register or Sign In to add a review</h4>
+                    <a href="{% url 'account_signup' %}" class="d-inline rounded shadow btn button_colors">Register</a>
+                    <a href="{% url 'account_login' %}" class="d-inline rounded shadow btn button_colors">Login</a>
+                {% endif %}
             </div>
-            {% else %}
-                <h4 class="mt-3">Please Register or Sign In to add a review</h4>
-                <a href="{% url 'account_signup' %}" class="d-inline rounded shadow btn button_colors">Register</a>
-                <a href="{% url 'account_login' %}" class="d-inline rounded shadow btn button_colors">Login</a>
-            {% endif %}
         {% endif %}
     </div>
 </div>
