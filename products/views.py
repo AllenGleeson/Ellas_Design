@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Review
 from checkout.models import Order
@@ -30,6 +31,9 @@ def view_product(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.all().filter(product=product)
+    paginator = Paginator(reviews, 7) # Show 7 contacts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     if request.method == "POST":
         user_review = ReviewForm(request.POST)
@@ -43,7 +47,7 @@ def view_product(request, product_id):
 
     context = {
         'product': product,
-        'reviews': reviews,
+        'reviews': page_obj,
         'user_review': user_review
     }
 

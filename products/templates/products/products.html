@@ -8,6 +8,58 @@
 
 {% block content %}
 <div class="container">
+    <!-- Flower Animation -->
+    <div class="canvas">
+
+        <div class="big_flower" id="flower1">
+        <div class="big_petal petal1 f1p"></div>
+        <div class="big_petal petal2 f1p"></div>
+        <div class="big_petal petal3 f1p"></div>
+        <div class="big_petal petal4 f1p"></div>
+        <div class="big_petal petal5 f1p"></div>
+        </div>
+
+        <div class="small_flower" id="flower2">
+        <div class="small_petal petal1 f2p"></div>
+        <div class="small_petal petal2 f2p"></div>
+        <div class="small_petal petal3 f2p"></div>
+        <div class="small_petal petal4 f2p"></div>
+        <div class="small_petal petal5 f2p"></div>
+        </div>
+     
+        <div class="small_flower" id="flower3">
+        <div class="small_petal petal1 f3p"></div>
+        <div class="small_petal petal2 f3p"></div>
+        <div class="small_petal petal3 f3p"></div>
+        <div class="small_petal petal4 f3p"></div>
+        <div class="small_petal petal5 f3p"></div>
+        </div>
+
+        <div class="small_flower" id="flower4">
+        <div class="small_petal petal1 f4p"></div>
+        <div class="small_petal petal2 f4p"></div>
+        <div class="small_petal petal3 f4p"></div>
+        <div class="small_petal petal4 f4p"></div>
+        <div class="small_petal petal5 f4p"></div>
+        </div>
+
+        <div class="big_flower" id="flower5">
+        <div class="big_petal petal1 f5p"></div>
+        <div class="big_petal petal2 f5p"></div>
+        <div class="big_petal petal3 f5p"></div>
+        <div class="big_petal petal4 f5p"></div>
+        <div class="big_petal petal5 f5p"></div>
+        </div>
+
+        <div class="big_flower" id="flower6">
+        <div class="big_petal petal1 f6p"></div>
+        <div class="big_petal petal2 f6p"></div>
+        <div class="big_petal petal3 f6p"></div>
+        <div class="big_petal petal4 f6p"></div>
+        <div class="big_petal petal5 f6p"></div>
+        </div>
+    </div>
+
     <div class="row">
         <!-- Creates a tab for each category so the user can click one to show only that category -->
         <div class="col text-center mt-3">
@@ -25,60 +77,11 @@
 
     <div class="row">
         <!-- Creates the product cards -->
-        <div class="canvas">
-
-     <div class="big_flower" id="flower1">
-        <div class="big_petal petal1 f1p"></div>
-        <div class="big_petal petal2 f1p"></div>
-        <div class="big_petal petal3 f1p"></div>
-        <div class="big_petal petal4 f1p"></div>
-        <div class="big_petal petal5 f1p"></div>
-     </div>
-
-     <div class="small_flower" id="flower2">
-        <div class="small_petal petal1 f2p"></div>
-        <div class="small_petal petal2 f2p"></div>
-        <div class="small_petal petal3 f2p"></div>
-        <div class="small_petal petal4 f2p"></div>
-        <div class="small_petal petal5 f2p"></div>
-     </div>
-     
-     <div class="small_flower" id="flower3">
-        <div class="small_petal petal1 f3p"></div>
-        <div class="small_petal petal2 f3p"></div>
-        <div class="small_petal petal3 f3p"></div>
-        <div class="small_petal petal4 f3p"></div>
-        <div class="small_petal petal5 f3p"></div>
-     </div>
-
-     <div class="small_flower" id="flower4">
-        <div class="small_petal petal1 f4p"></div>
-        <div class="small_petal petal2 f4p"></div>
-        <div class="small_petal petal3 f4p"></div>
-        <div class="small_petal petal4 f4p"></div>
-        <div class="small_petal petal5 f4p"></div>
-     </div>
-
-     <div class="big_flower" id="flower5">
-        <div class="big_petal petal1 f5p"></div>
-        <div class="big_petal petal2 f5p"></div>
-        <div class="big_petal petal3 f5p"></div>
-        <div class="big_petal petal4 f5p"></div>
-        <div class="big_petal petal5 f5p"></div>
-     </div>
-
-     <div class="big_flower" id="flower6">
-        <div class="big_petal petal1 f6p"></div>
-        <div class="big_petal petal2 f6p"></div>
-        <div class="big_petal petal3 f6p"></div>
-        <div class="big_petal petal4 f6p"></div>
-        <div class="big_petal petal5 f6p"></div>
-     </div>
-  </div>
+    
         {% if products %}
             {% for product in products %}
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="card">
+                <div class="card shadow">
                     <a href="{% url 'view_product' product.id %}">
                         <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="Card image cap"
                              onerror="this.src='{% static 'images/placeholder.jpg'%}'">

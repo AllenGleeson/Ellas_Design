@@ -12,10 +12,14 @@ body {
     font-family: 'Courgette', cursive;
 }
 
+.roboto {
+    font-family: 'roboto' !important;
+}
+
 /* Nav Bar */
 
 .navbar {
-    background-color: #f993be !important;
+    background-image: linear-gradient(#f993be, #fb70ab);
     border-bottom: 2px solid #fff !important;
     z-index: 2;
 }

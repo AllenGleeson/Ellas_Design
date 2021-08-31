@@ -55,13 +55,13 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="nav_buttons navbar-nav mr-auto mb-2 mb-lg-0">
                         <li class="nav-item rounded">
-                            <a class="nav-link active" aria-current="page" href="{% url 'products' %}">SHOP</a>
+                            <a class="nav-link text-center active" aria-current="page" href="{% url 'products' %}">SHOP</a>
                         </li>
                         <li class="nav-item rounded">
-                            <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+                            <a class="nav-link text-center" href="{% url 'about' %}">ABOUT</a>
                         </li>
                         <li class="nav-item rounded">
-                            <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+                            <a class="nav-link text-center" href="{% url 'contact' %}">CONTACT</a>
                         </li>
                     </ul>
                 </div>
@@ -72,11 +72,11 @@
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <i class="fas fa-user fa-lg"></i>
                                     {% if request.user.is_authenticated %}
-                                    <p class="my-0">{{ request.user }}</p>
+                                    <p class="my-0 p-1">{{ request.user }}</p>
                                     {% else %}
-                                    <p class="my-0">My Account</p>
+                                    <p class="my-0 p-1">My Account</p>
                                     {% endif %}
                                 </div>
                             </a>
@@ -98,7 +98,7 @@
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                                 href="{% url 'view_bag' %}">
                                 <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <i class="fas fa-shopping-bag fa-lg"></i>
                                     <p class="my-0">
                                         {% if total %}
                                         €{{ total|floatformat:2 }}
