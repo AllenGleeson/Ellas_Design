@@ -6,3 +6,8 @@
 form {
     margin: 40px;
 }
+
+#id_comment{
+    padding: 8px;
+    border-radius: 8px;
+}

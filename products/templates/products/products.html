@@ -63,19 +63,19 @@
     <div class="row">
         <!-- Creates a tab for each category so the user can click one to show only that category -->
         <div class="col text-center mt-3">
-            <a class="category-badge text-decoration-none {% if current_category == None %} catagory_style{% else %} selected_catagory_style{% endif %}" href="{% url 'products' %}">
-                <span class="p-2 mt-2 button_colors rounded border">All</span>
+            <a class="category-badge text-decoration-none" href="{% url 'products' %}">
+                <span class="button_colors p-2 rounded-pill {% if current_category == None %} catagory_style{% else %} selected_catagory_style{% endif %}">All</span>
             </a>
             {% for c in categories %}
-            <a class="category-badge text-decoration-none{% if current_category == c.name %} catagory_style{% else %} selected_catagory_style{% endif %}" href="{% url 'products' %}?category={{ c.name }}">
-                <span class="p-2 mt-2 button_colors rounded border">{{ c.friendly_name }}</span>
+            <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                <span class="button_colors p-2 rounded-pill {% if current_category == c.name %} catagory_style{% else %} selected_catagory_style{% endif %}">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             <hr class="mb-1">
         </div>
     </div>
 
-    <div class="row">
+    <div class="row grow">
         <!-- Creates the product cards -->
     
         {% if products %}

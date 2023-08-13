@@ -3,9 +3,8 @@
 /* Font and classes for button colors */
 
 .button_colors {
-    background-color: #f993be !important;
+    background-image: linear-gradient(#f993be, #fb70ab);
     color: white;
-    border-color: #0600008f !important;
 }
 
 body {
@@ -30,8 +29,11 @@ body {
 }
 
 .nav-item:hover {
-    border: 2px solid #ffffff69;
     background-color: #ffa8cd;
+}
+
+.navbar-nav .list-inline-item{
+    min-width: 110px;
 }
 
 #logo {
@@ -76,6 +78,10 @@ footer a {
     font-size: 3rem;
 }
 
+.grow{
+    animation: grow 1s;
+}
+
 /* Media queries */
 
 @media only screen and (max-width: 500px) {
@@ -88,4 +94,11 @@ footer a {
     .nav_buttons {
         font-size: 1.4rem;
     }
+}
+
+/* Animations */
+
+@keyframes grow {
+    0% { transform: scale(.2); }
+    100% { transform: scale(1); }
 }

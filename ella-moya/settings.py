@@ -30,7 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = ['ella-moya.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
