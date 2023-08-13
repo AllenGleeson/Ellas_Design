@@ -9,12 +9,17 @@ body {
 }
 
 #shop_now_btn {
-    background-color: #f993be !important;
     color: white;
-    border-color: white;
+    border-color: #ffffff00;
     font-size: 40px;
     border-radius: 20px;
     float: right;
+    background-image: linear-gradient(#f993be, #fb70ab) !important;
+}
+
+#shop_now_btn:hover {
+    color: white;
+    background-image: linear-gradient(#ffd9e9, #cbc9ca) !important;
 }
 
 .container {
