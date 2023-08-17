@@ -22,11 +22,12 @@ body {
     background-image: linear-gradient(#ffd9e9, #cbc9ca) !important;
 }
 
-.container {
-    height: 530px;
-    margin-bottom: 100px;
-}
-
 .home_jumbotron {
     margin-top: 310px;
+}
+
+@media only screen and (max-width: 500px) {
+    .home_jumbotron{
+        margin-top: 25px;
+    }
 }

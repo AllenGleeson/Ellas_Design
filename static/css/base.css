@@ -25,7 +25,6 @@ body {
 
 .nav-link {
     color: white !important;
-    border-radius: 20px !important;
 }
 
 .nav-item:hover {
@@ -67,11 +66,16 @@ footer {
 
 footer h3 {
     margin-top: 50px;
+    cursor: default;
 }
 
 footer a {
     text-decoration: none !important;
     color: white;
+}
+
+.email-text{
+    margin-left: 5px;
 }
 
 .mylogo {
@@ -85,8 +89,28 @@ footer a {
 /* Media queries */
 
 @media only screen and (max-width: 500px) {
+    #logo {
+        width: 68px;
+    }
+    .navbar-nav .list-inline-item {
+        min-width: 0px;
+    }
+    .navbar-toggler{
+        font-size: 1rem;
+    }
+    .navbar-toggler:focus{
+        box-shadow: 0 0 0 0.1rem;
+    }
     footer {
         font-size: 0.8rem;
+        min-height: 0px;
+        margin-top: 0px;
+    }
+    footer h3 {
+        margin: 6px;
+    }
+    .flex-wrapper{
+        min-height: 70vh;
     }
 }
 
