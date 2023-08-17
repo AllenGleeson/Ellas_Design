@@ -4,8 +4,10 @@ from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Review
 from checkout.models import Order
 from .forms import ProductForm, CategoryForm, ReviewForm
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 
+@xframe_options_exempt
 def get_products(request):
     """ A view to return the shop page """
     products = Product.objects.all()
@@ -25,7 +27,7 @@ def get_products(request):
 
     return render(request, 'products/products.html', context)
 
-
+@xframe_options_exempt
 def view_product(request, product_id):
     """ A view to show the product and any reviews """
 

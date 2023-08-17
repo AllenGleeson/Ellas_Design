@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.conf import settings
 from .forms import ContactForm
 from django.core.mail import send_mail
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 
+@xframe_options_exempt
 def contact(request):
     """ A view for the contact page """
 
