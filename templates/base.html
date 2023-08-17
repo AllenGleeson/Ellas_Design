@@ -66,7 +66,7 @@
                     </ul>
                 </div>
                 <div>
-                    <ul class="navbar-nav mr-5 mb-2 mb-lg-0">
+                    <ul class="mb-2 mb-lg-0 mr-md-5 mr-sm-0 navbar-nav">
                         <!-- Accounts. If logged in can view users profile. If not then gives option to register. -->
                         <li class="list-inline-item dropdown nav-item rounded">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
@@ -74,9 +74,9 @@
                                 <div class="text-center">
                                     <i class="fas fa-user fa-lg"></i>
                                     {% if request.user.is_authenticated %}
-                                    <p class="my-0 p-1">{{ request.user }}</p>
+                                    <p class="my-0 p-1 account-bag">{{ request.user }}</p>
                                     {% else %}
-                                    <p class="my-0 p-1">My Account</p>
+                                    <p class="my-0 p-1 account-bag">My Account</p>
                                     {% endif %}
                                 </div>
                             </a>
@@ -99,7 +99,7 @@
                                 href="{% url 'view_bag' %}">
                                 <div class="text-center">
                                     <i class="fas fa-shopping-bag fa-lg"></i>
-                                    <p class="my-0">
+                                    <p class="my-0 account-bag">
                                         {% if total %}
                                         €{{ total|floatformat:2 }}
                                         {% else %}

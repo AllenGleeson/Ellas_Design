@@ -7,20 +7,15 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-7">
-            <h3>Feel free to get in touch:</h3>
-            {% if message %}
-                <h3>{{ message }}</h3>
-            {% endif %}
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input class="btn button_colors" type="submit" value="Submit" />
-            </form>
-        </div>
-    </div>
-
+        <h3 class="mb-4 mt-2">Feel free to get in touch:</h3>
+        {% if message %}
+            <h3>{{ message }}</h3>
+        {% endif %}
+        <form class="mb-3" action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn button_colors" type="submit" value="Submit" />
+        </form>
 </div>
 
 {% endblock %}

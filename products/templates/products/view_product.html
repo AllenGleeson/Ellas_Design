@@ -9,14 +9,14 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h2 class="text-center">{{product.name}}</h2>
+        <h2 id="product_title" class="text-center">{{product.name}}</h2>
         <hr>
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
             <img class="rounded shadow-lg products_page_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""
                  onerror="this.src='{% static 'images/placeholder.jpg'%}'">
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <div class="products_details">
+            <div class="products_details mt-2">
                 <p>Price: €{{product.price}}</p>
                 <p class="roboto">{{product.description}}</p>
             </div>

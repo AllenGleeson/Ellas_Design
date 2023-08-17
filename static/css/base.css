@@ -101,6 +101,9 @@ footer a {
     .navbar-toggler:focus{
         box-shadow: 0 0 0 0.1rem;
     }
+    .nav-link{
+        padding: 6px;
+    }
     footer {
         font-size: 0.8rem;
         min-height: 0px;
@@ -111,6 +114,12 @@ footer a {
     }
     .flex-wrapper{
         min-height: 70vh;
+    }
+    .fa-ul{
+        margin-left: 0 !important;
+    }
+    .account-bag{
+        font-size: 0.8rem;
     }
 }
 
