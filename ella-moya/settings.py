@@ -72,7 +72,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ella-moya.urls'
-X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 TEMPLATES = [
     {
