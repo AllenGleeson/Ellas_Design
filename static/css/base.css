@@ -48,7 +48,7 @@ header {
 }
 
 .dropdown-menu{
-    min-width: none;
+    min-width: 0 !important;
     background-color: #ffa8cd;
 }
 
