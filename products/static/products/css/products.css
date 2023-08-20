@@ -214,7 +214,7 @@
 
 .card {
     margin: 1rem !important;
-    min-height: 440px !important;
+    min-height: 380px !important;
     z-index: 2;
 }
 
