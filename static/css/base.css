@@ -47,6 +47,15 @@ header {
     margin-bottom: 50px;
 }
 
+.dropdown-menu{
+    min-width: none;
+    background-color: #ffa8cd;
+}
+
+.dropdown-item{
+    color: #fff;
+}
+
 .flex-wrapper {
     display: flex;
     min-height: 100vh;
@@ -65,7 +74,6 @@ footer {
 }
 
 footer h3 {
-    margin-top: 50px;
     cursor: default;
 }
 

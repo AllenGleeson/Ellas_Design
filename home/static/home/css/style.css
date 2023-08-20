@@ -13,8 +13,8 @@ body {
     border-color: #ffffff00;
     font-size: 40px;
     border-radius: 20px;
-    float: right;
     background-image: linear-gradient(#f993be, #fb70ab) !important;
+    margin: 0 auto;
 }
 
 #shop_now_btn:hover {
@@ -23,11 +23,11 @@ body {
 }
 
 .home_jumbotron {
-    margin-top: 310px;
+    height: 100vh;
 }
 
 @media only screen and (max-width: 500px) {
-    .home_jumbotron{
-        margin-top: 25px;
+    #shop_now_btn {
+        font-size: 22px;
     }
 }
