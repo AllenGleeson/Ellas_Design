@@ -104,6 +104,9 @@ footer a {
     .nav-link{
         padding: 6px;
     }
+    .dropdown-menu{
+        min-width: none !important;
+    }
     footer {
         font-size: 0.8rem;
         min-height: 0px;
