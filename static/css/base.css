@@ -69,8 +69,8 @@ footer {
     background-color: #f993be !important;
     width: 100%;
     min-height: 200px;
-    margin-top: 90px;
     border-top: 1px solid white;
+    padding: 30px;
 }
 
 footer h3 {
@@ -119,6 +119,7 @@ footer a {
         font-size: 0.8rem;
         min-height: 0px;
         margin-top: 0px;
+        padding: 16px;
     }
     footer h3 {
         margin: 6px;
