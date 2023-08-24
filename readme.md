@@ -4,7 +4,7 @@ Ellas Design is a full stack Django web app to sell clothing from Ella Moya. The
 
 I made the website for someone I know so I had extra motivation but the goal was to use the django framework and ultimately for the designer to be able to sell her products. I also use JS and Jquery . The site is a series of Django apps with their own js and css.
 
-Here is a link to the published site on Heroku: https://ella-moya.herokuapp.com/
+Here is a link to the published site on Heroku: https://ellas-design-231d819e785f.herokuapp.com/
 
 ## UX
 
