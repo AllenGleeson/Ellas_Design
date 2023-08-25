@@ -289,6 +289,13 @@ a {
     #product_title{
         font-size: 1rem;
     }
+
+    .card-title{
+        font-size: 1rem !important;
+    }
+    .big_flower{
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 700px) {
