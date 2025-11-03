@@ -504,3 +504,6 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 db.sqlite3
+
+# Data files - needed for deployment, so included in git
+# data/

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "category_id": 1,
+    "sku": "DRS001",
+    "name": "Elegant Floral Dress",
+    "description": "A beautiful flowing dress featuring elegant floral patterns. Perfect for special occasions or a sophisticated everyday look. Made with high-quality fabric for comfort and style.",
+    "price": "89.99",
+    "image": "images/dress-1.PNG"
+  },
+  {
+    "id": 2,
+    "category_id": 1,
+    "sku": "DRS002",
+    "name": "Classic Chic Dress",
+    "description": "A timeless dress design that combines classic elegance with modern style. Versatile and comfortable, suitable for both casual and formal occasions. Features a flattering silhouette.",
+    "price": "79.99",
+    "image": "images/dress-2.PNG"
+  },
+  {
+    "id": 3,
+    "category_id": 1,
+    "sku": "DRS003",
+    "name": "Stylish Summer Dress",
+    "description": "Light and airy summer dress perfect for warm weather. Features a contemporary design with comfortable fit. Ideal for daytime events, garden parties, or casual outings.",
+    "price": "69.99",
+    "image": "images/dress-3.PNG"
+  },
+  {
+    "id": 4,
+    "category_id": 2,
+    "sku": "BAG001",
+    "name": "Designer Handbag",
+    "description": "A sophisticated handbag with elegant design and premium craftsmanship. Perfect for completing your outfit with style. Spacious interior with organized compartments for everyday essentials.",
+    "price": "129.99",
+    "image": "images/bag-1.PNG"
+  },
+  {
+    "id": 5,
+    "category_id": 2,
+    "sku": "BAG002",
+    "name": "Luxury Tote Bag",
+    "description": "A spacious and stylish tote bag that combines functionality with fashion. Made from quality materials, perfect for work, shopping, or travel. Features a modern design that complements any outfit.",
+    "price": "119.99",
+    "image": "images/bag-2.PNG"
+  },
+  {
+    "id": 6,
+    "category_id": 2,
+    "sku": "BAG003",
+    "name": "Chic Shoulder Bag",
+    "description": "An elegant shoulder bag with contemporary design elements. Compact yet roomy, perfect for evenings out or special occasions. Features a refined aesthetic with attention to detail.",
+    "price": "109.99",
+    "image": "images/bag-3.PNG"
+  },
+  {
+    "id": 7,
+    "category_id": 3,
+    "sku": "JCK001",
+    "name": "Modern Tailored Jacket",
+    "description": "A beautifully tailored jacket that adds sophistication to any outfit. Perfect for layering over dresses or pairing with casual wear. Features excellent fit and quality construction.",
+    "price": "149.99",
+    "image": "images/jacket-1.PNG"
+  },
+  {
+    "id": 8,
+    "category_id": 4,
+    "sku": "FAB001",
+    "name": "Premium Fabric Collection 1",
+    "description": "High-quality fabric perfect for custom designs and tailoring. Features beautiful texture and pattern. Ideal for creating unique garments or home decor projects.",
+    "price": "24.99",
+    "image": "images/fabric-1.jpg"
+  },
+  {
+    "id": 9,
+    "category_id": 4,
+    "sku": "FAB002",
+    "name": "Premium Fabric Collection 2",
+    "description": "Luxurious fabric with elegant design and premium feel. Suitable for fashion-forward projects and bespoke creations. High-quality material that ensures durability and style.",
+    "price": "27.99",
+    "image": "images/fabric-2.jpg"
+  },
+  {
+    "id": 10,
+    "category_id": 4,
+    "sku": "FAB003",
+    "name": "Premium Fabric Collection 3",
+    "description": "Exquisite fabric featuring unique patterns and textures. Perfect for designers and makers looking for distinctive materials. Combines beauty with practicality for exceptional results.",
+    "price": "29.99",
+    "image": "images/fabric-3.jpg"
+  }
+]

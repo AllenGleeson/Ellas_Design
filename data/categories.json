@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "dresses",
+    "friendly_name": "Dresses"
+  },
+  {
+    "id": 2,
+    "name": "bags",
+    "friendly_name": "Bags"
+  },
+  {
+    "id": 3,
+    "name": "jackets",
+    "friendly_name": "Jackets"
+  },
+  {
+    "id": 4,
+    "name": "fabrics",
+    "friendly_name": "Fabrics"
+  }
+]
