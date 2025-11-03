@@ -1,27 +1,124 @@
+/* Contact Page Styling */
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(249, 147, 190, 0.2);
+}
+
+.contact-form h3 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.contact-form p {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #f993be;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Courgette', cursive;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #fb70ab;
+    box-shadow: 0 0 0 3px rgba(249, 147, 190, 0.2);
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-submit-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-image: linear-gradient(#ccc, #aaa) !important;
+    color: #666 !important;
+    border: 2px solid #ccc !important;
+}
+
+.contact-submit-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 .container {
     min-height: 700px;
     margin-bottom: 100px;
+    padding: 2rem 1rem;
 }
 
-form {
-    margin: 40px;
-}
-
-#id_comment{
-    padding: 8px;
-    border-radius: 8px;
+@media only screen and (max-width: 768px) {
+    .contact-form {
+        margin: 20px 10px;
+        padding: 1.5rem;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 @media only screen and (max-width: 500px) {
     .container {
         min-height: 0px;
         margin-bottom: 0px;
+        padding: 1rem;
     }
-    form {
-        margin: 8px;
+    
+    .contact-form {
+        margin: 10px 5px;
+        padding: 1rem;
     }
-    #id_comment{
+    
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    #id_comment {
         width: 100%;
-        height: 100px;
+        min-height: 100px;
+    }
+    
+    .contact-submit-btn {
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
     }
 }

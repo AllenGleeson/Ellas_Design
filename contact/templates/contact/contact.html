@@ -11,10 +11,12 @@
         {% if message %}
             <h3>{{ message }}</h3>
         {% endif %}
-        <form class="mb-3" action="" method="POST">
+        <form class="mb-3 contact-form" action="" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input class="btn button_colors" type="submit" value="Submit" />
+            <button class="btn button_colors contact-submit-btn" type="submit" disabled title="Contact form disabled in showcase mode">
+                Submit
+            </button>
         </form>
 </div>
 
