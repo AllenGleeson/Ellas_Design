@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load crispy_forms_filters %}
 
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'products/css/products.css' %}">
@@ -11,182 +10,32 @@
     <div class="row">
         <h2 id="product_title" class="text-center">{{product.name}}</h2>
         <hr>
-        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <img class="rounded shadow-lg products_page_image" src="{{ MEDIA_URL }}{{product.image}}" alt=""
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            {% if product.image|slice:":7" == "images/" %}
+            <img class="rounded shadow-lg products_page_image" src="{% static product.image %}" alt="{{ product.name }}"
                  onerror="this.src='{% static 'images/placeholder.jpg'%}'">
+            {% else %}
+            <img class="rounded shadow-lg products_page_image" src="{{ MEDIA_URL }}{{product.image}}" alt="{{ product.name }}"
+                 onerror="this.src='{% static 'images/placeholder.jpg'%}'">
+            {% endif %}
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <div class="products_details mt-2">
-                <p>Price: €{{product.price}}</p>
+                <p><strong>Price:</strong> €{{product.price}}</p>
+                {% if product.category %}
+                <p><strong>Category:</strong> {{product.category.friendly_name}}</p>
+                {% endif %}
                 <p class="roboto">{{product.description}}</p>
-            </div>
-        </div>
-
-        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <div>
-                {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                <!-- If an admin then can access these edit and delete features -->
-                <a href="{% url 'edit_product' product.id %}" class="rounded shadow btn btn-outline-black button_colors">Edit</a>
-                <div data-id="{{ product.id }}" class="rounded shadow deleteItem btn btn-outline-black button_colors">Delete</div>
-                {% endif %}
-                {% endif %}
-
-                <p>Buy now for: €{{product.price}}</p>
-
-                {% if product %}
-                <form onsubmit="allow_quantity()" lass="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div class="col-12">
-                            <!-- Quantity selector -->
-                            <p class="mt-3"><strong>Quantity:</strong></p>
-                            <div class="form-group w-50">
-                                <div class="input-group quantity-group">
-                                    <div class="input-group-prepend">
-                                        <button type="button" class="decrement-qty btn btn-black rounded-0"
-                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-minus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input class="rounded form-control qty_input" type="number" name="quantity" value="1"
-                                        min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"
-                                        disabled>
-                                    <div class="input-group-append">
-                                        <button type="button" class="increment-qty btn btn-black rounded-0"
-                                            data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <!-- Back to shop -->
-                            <a href="{% url 'products' %}" class="rounded shadow btn btn-outline-black button_colors mt-5">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <!-- Adds the quantity of the product to the bag -->
-                            <input type="submit" class="rounded shadow btn btn-black button_colors text-uppercase mt-5"
-                                value="Add to Bag">
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                </form>
-                {% else %}
-                <!-- If no product then displays this message -->
-                <span id="stock_span">Out of Stock</span>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-
-    <!-- User reviews -->
-    <div class="row mt-5">
-        {% if reviews %}
-            <button type="button" class="reviews_collapible rounded shadow btn button_colors">Reviews: ({{reviews.paginator.count}})</button>
-            <hr>
-            <div class="content">
-                {% for review in reviews %}
-                <div class="col-12 roboto">
-                    <h4 class="{% if forloop.counter0  == 0 %}pt-2{% endif %}">{{ review.name }}</h4>
-                    <p>{{ review.review }}</p>
-                    <hr>
-                </div>
-                {% endfor %}
-
-                <div class="pagination">
-                    <span class="step-links">
-                        {% if reviews.has_previous %}
-                            <a class="rounded shadow btn button_colors" href="?page=1">&laquo; first</a>
-                            <a class="rounded shadow btn button_colors" href="?page={{ reviews.previous_page_number }}">previous</a>
-                        {% endif %}
-
-                        <span class="current">
-                            Page {{ reviews.number }} of {{ reviews.paginator.num_pages }}.
-                        </span>
-
-                        {% if reviews.has_next %}
-                            <a class="rounded shadow btn button_colors" href="?page={{ reviews.next_page_number }}">next</a>
-                            <a class="rounded shadow btn button_colors" href="?page={{ reviews.paginator.num_pages }}">last &raquo;</a>
-                        {% endif %}
+                
+                <!-- Back to shop button -->
+                <a href="{% url 'products' %}" class="rounded shadow btn btn-outline-black button_colors mt-5">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
                     </span>
-                </div>
-
-                <!-- If logged in the user can add reviews -->
-                {% if request.user.is_authenticated %}
-                <div class="col-12">
-                    <h4 class="pt-4">Add your review:</h4>
-                    <form id="review_form" method="POST" class="form mb-2" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {% for field in user_review %}
-                            {{ field | as_crispy_field }}
-                        {% endfor %}
-                        <div class="text-right">
-                            <button class="rounded shadow btn button_colors" type="submit">Add Review</button>
-                        </div>
-                    </form>
-                </div>
-                {% else %}
-                    <h4 class="mt-3">Please Register or Sign In to add a review</h4>
-                    <a href="{% url 'account_signup' %}" class="d-inline rounded shadow btn button_colors">Register</a>
-                    <a href="{% url 'account_login' %}" class="d-inline rounded shadow btn button_colors">Login</a>
-                {% endif %}
+                    <span class="text-uppercase">Back to Shop</span>
+                </a>
             </div>
-            
-        {% else %}
-            <button type="button" class="reviews_collapible rounded shadow btn button_colors">Reviews: (0)</button>
-            <hr>
-            <div class="content">
-                <!-- If logged in the user can add reviews -->
-                {% if request.user.is_authenticated %}
-                <div class="col-12">
-                    <h4 class="pt-4">Add your review:</h4>
-                    <form id="review_form" method="POST" class="form mb-2" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {% for field in user_review %}
-                            {{ field | as_crispy_field }}
-                        {% endfor %}
-                        <div class="text-right">
-                            <button class="rounded shadow btn button_colors" type="submit">Add Review</button>
-                        </div>
-                    </form>
-                </div>
-                {% else %}
-                    <h4 class="mt-3">Please Register or Sign In to add a review</h4>
-                    <a href="{% url 'account_signup' %}" class="d-inline rounded shadow btn button_colors">Register</a>
-                    <a href="{% url 'account_login' %}" class="d-inline rounded shadow btn button_colors">Login</a>
-                {% endif %}
-            </div>
-        {% endif %}
+        </div>
     </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-<script src="{% static 'products/js/view_product.js' %}"></script>
-<script>
-var coll = document.getElementsByClassName("reviews_collapible")[0];
-
-coll.addEventListener("click", function () {
-    console.log("Clicked");
-    this.classList.toggle("active");
-    var content = document.getElementsByClassName("content")[0];
-    if (content.style.maxHeight){
-        content.style.maxHeight = null;
-        content.style.minHeight = null;
-    } else {
-        content.style.maxHeight = content.scrollHeight + 8 + "px";
-        content.style.minHeight = content.scrollHeight + 8 +"px";
-    } 
-});
-</script>
 {% endblock %}

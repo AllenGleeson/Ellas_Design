@@ -61,30 +61,45 @@
     </div>
 
     <div class="row">
+        <!-- Search Bar -->
+        <div class="col-12 text-center mt-4 mb-3">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="product-search" class="search-input" placeholder="Search products..." autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <!-- Creates a tab for each category so the user can click one to show only that category -->
         <div class="col text-center mt-3">
             <a class="category-badge text-decoration-none" href="{% url 'products' %}">
-                <span class="button_colors p-2 rounded-pill {% if current_category == None %} catagory_style{% else %} selected_catagory_style{% endif %}">All</span>
+                <span class="{% if current_category == None %}selected_catagory_style{% else %}catagory_style{% endif %}">All</span>
             </a>
             {% for c in categories %}
             <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                <span class="button_colors p-2 rounded-pill {% if current_category == c.name %} catagory_style{% else %} selected_catagory_style{% endif %}">{{ c.friendly_name }}</span>
+                <span class="{% if current_category == c.name %}selected_catagory_style{% else %}catagory_style{% endif %}">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             <hr class="mb-1">
         </div>
     </div>
 
-    <div class="row grow">
+    <div class="row grow products">
         <!-- Creates the product cards -->
     
         {% if products %}
             {% for product in products %}
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 product-card" data-name="{{ product.name|lower }}" data-category="{{ product.category.friendly_name|lower }}" data-description="{{ product.description|lower }}" data-product-index="{{ forloop.counter }}">
                 <div class="card shadow">
                     <a href="{% url 'view_product' product.id %}">
-                        <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="Card image cap"
+                        {% if product.image|slice:":7" == "images/" %}
+                        <img class="card-img-top" src="{% static product.image %}" alt="{{ product.name }}"
                              onerror="this.src='{% static 'images/placeholder.jpg'%}'">
+                        {% else %}
+                        <img class="card-img-top" src="{{ MEDIA_URL }}{{product.image}}" alt="{{ product.name }}"
+                             onerror="this.src='{% static 'images/placeholder.jpg'%}'">
+                        {% endif %}
                         <div class="card-body text-dark">
                             <h5 class="card-title">{{product.name}}</h5>
                             <p class="card-text">{{product.category.friendly_name}}</p>
@@ -96,22 +111,22 @@
 
 
             {% if forloop.counter|divisibleby:1 %}
-            <div class="col-12 d-sm-none mb-5">
+            <div class="col-12 d-sm-none mb-5 product-separator" data-product-index="{{ forloop.counter }}">
                 <hr>
             </div>
             {% endif %}
             {% if forloop.counter|divisibleby:2 %}
-            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5 product-separator" data-product-index="{{ forloop.counter }}">
                 <hr>
             </div>
             {% endif %}
             {% if forloop.counter|divisibleby:3 %}
-            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <div class="col-12 d-none d-lg-block d-xl-none mb-5 product-separator" data-product-index="{{ forloop.counter }}">
                 <hr>
             </div>
             {% endif %}
             {% if forloop.counter|divisibleby:4 %}
-            <div class="col-12 d-none d-xl-block mb-5">
+            <div class="col-12 d-none d-xl-block mb-5 product-separator" data-product-index="{{ forloop.counter }}">
                 <hr>
             </div>
             {% endif %}
@@ -122,6 +137,108 @@
             <h1>There are no products currently</h1>
         {% endif %}
     </div>
+
+    <!-- No Results Message -->
+    <div class="row" id="no-results" style="display: none;">
+        <div class="col-12 text-center mt-5 mb-5">
+            <h3 class="text-muted">No products found matching your search.</h3>
+        </div>
+    </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+<script>
+    // Product search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('product-search');
+        const productCards = document.querySelectorAll('.product-card');
+        const noResultsMessage = document.getElementById('no-results');
+        
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                let visibleCount = 0;
+                
+                // Get all product cards and sort by their index to maintain order
+                const sortedCards = Array.from(productCards).sort(function(a, b) {
+                    return parseInt(a.getAttribute('data-product-index')) - parseInt(b.getAttribute('data-product-index'));
+                });
+                
+                sortedCards.forEach(function(card) {
+                    const productName = card.getAttribute('data-name') || '';
+                    const productCategory = card.getAttribute('data-category') || '';
+                    const productDescription = card.getAttribute('data-description') || '';
+                    
+                    // Check if search term matches product name only
+                    const matches = searchTerm === '' || 
+                                   productName.includes(searchTerm);
+                    
+                    if (matches) {
+                        card.style.display = '';
+                        card.style.visibility = '';
+                        card.style.order = '';
+                        card.classList.remove('d-none');
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                        card.style.visibility = 'hidden';
+                        card.style.order = '9999'; // Move hidden items to end
+                        card.classList.add('d-none');
+                    }
+                });
+                
+                // Hide/show HR separators based on visible products
+                // Separators only show when there are enough visible products to warrant them
+                const separators = document.querySelectorAll('.product-separator');
+                
+                // Always hide all separators first by adding hide class
+                separators.forEach(function(sep) {
+                    sep.classList.add('hide-separator');
+                });
+                
+                // Only show separators if there are 2+ visible products
+                if (visibleCount >= 2) {
+                    // Show separators only after visible products that have more visible products after them
+                    separators.forEach(function(separator) {
+                        const separatorIndex = parseInt(separator.getAttribute('data-product-index'));
+                        // Find the product card that comes before this separator
+                        const precedingCard = Array.from(productCards).find(function(card) {
+                            const cardIndex = parseInt(card.getAttribute('data-product-index'));
+                            const cardDisplay = card.style.display;
+                            const computedDisplay = window.getComputedStyle(card).display;
+                            return cardIndex === separatorIndex && 
+                                   cardDisplay !== 'none' && 
+                                   computedDisplay !== 'none';
+                        });
+                        
+                        if (precedingCard) {
+                            // Check if there's at least one visible product after this separator
+                            const hasNextVisible = Array.from(productCards).some(function(card) {
+                                const cardIndex = parseInt(card.getAttribute('data-product-index'));
+                                const cardDisplay = card.style.display;
+                                const computedDisplay = window.getComputedStyle(card).display;
+                                return cardIndex > separatorIndex && 
+                                       cardDisplay !== 'none' && 
+                                       computedDisplay !== 'none';
+                            });
+                            // Only show separator if there are more products after it
+                            if (hasNextVisible) {
+                                separator.classList.remove('hide-separator');
+                            }
+                        }
+                    });
+                }
+                
+                // Show/hide no results message
+                if (searchTerm !== '' && visibleCount === 0) {
+                    noResultsMessage.style.display = '';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
 {% endblock %}
