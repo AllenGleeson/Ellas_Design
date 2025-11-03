@@ -44,7 +44,7 @@
     <header>
         <nav class="navbar navbar-light navbar-expand-lg">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                <button class="navbar-toggler" type="button" id="mobile-sidebar-toggle"
                     aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -53,6 +53,9 @@
                     <img id="logo" src="{% static 'images/logo.png'%}" alt="logo">
                 </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <button class="sidebar-close d-lg-none" type="button" aria-label="Close sidebar">
+                        <i class="fas fa-times"></i>
+                    </button>
                     <ul class="nav_buttons navbar-nav mr-auto mb-2 mb-lg-0">
                         <li class="nav-item rounded">
                             <a class="nav-link text-center active" aria-current="page" href="{% url 'products' %}">SHOP</a>
@@ -64,50 +67,54 @@
                             <a class="nav-link text-center" href="{% url 'contact' %}">CONTACT</a>
                         </li>
                     </ul>
-                </div>
-                <div>
-                    <ul class="mb-2 mb-lg-0 mr-md-5 mr-sm-0 navbar-nav">
-                        <!-- Accounts. If logged in can view users profile. If not then gives option to register. -->
-                        <li class="list-inline-item dropdown nav-item rounded">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                    <!-- Account and Bag in sidebar on mobile -->
+                    <ul class="mb-2 mb-lg-0 mr-md-5 mr-sm-0 navbar-nav d-lg-none">
+                        <!-- User Account - Disabled for showcase -->
+                        <li class="list-inline-item nav-item rounded">
+                            <span class="text-muted nav-link disabled" style="cursor: not-allowed; opacity: 0.6;" 
+                                  title="Account feature disabled in showcase mode">
                                 <div class="text-center">
                                     <i class="fas fa-user fa-lg"></i>
-                                    {% if request.user.is_authenticated %}
-                                    <p class="my-0 p-1 account-bag">{{ request.user }}</p>
-                                    {% else %}
                                     <p class="my-0 p-1 account-bag">My Account</p>
-                                    {% endif %}
                                 </div>
-                            </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                <a href="{% url 'product_management' %}" class="dropdown-item account-bag">Product Management</a>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item account-bag">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item account-bag">Logout</a>
-                                {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item account-bag">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item account-bag">Login</a>
-                                {% endif %}
-                            </div>
+                            </span>
                         </li>
-                        <!-- Displays the shopping bag total amount -->
+                        <!-- Shopping Bag - Disabled for showcase -->
                         <li class="list-inline-item nav-item rounded">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                                href="{% url 'view_bag' %}">
+                            <span class="text-muted nav-link disabled" style="cursor: not-allowed; opacity: 0.6;" 
+                                  title="Shopping cart disabled in showcase mode">
                                 <div class="text-center">
                                     <i class="fas fa-shopping-bag fa-lg"></i>
-                                    <p class="my-0 account-bag">
-                                        {% if total %}
-                                        €{{ total|floatformat:2 }}
-                                        {% else %}
-                                        €0.00
-                                        {% endif %}
-                                    </p>
+                                    <p class="my-0 account-bag">€0.00</p>
                                 </div>
-                            </a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Sidebar backdrop -->
+                <div class="sidebar-backdrop d-lg-none"></div>
+                <!-- Account and Bag for desktop -->
+                <div class="d-none d-lg-block">
+                    <ul class="mb-2 mb-lg-0 mr-md-5 mr-sm-0 navbar-nav">
+                        <!-- User Account - Disabled for showcase -->
+                        <li class="list-inline-item nav-item rounded">
+                            <span class="text-muted nav-link disabled" style="cursor: not-allowed; opacity: 0.6;" 
+                                  title="Account feature disabled in showcase mode">
+                                <div class="text-center">
+                                    <i class="fas fa-user fa-lg"></i>
+                                    <p class="my-0 p-1 account-bag">My Account</p>
+                                </div>
+                            </span>
+                        </li>
+                        <!-- Shopping Bag - Disabled for showcase -->
+                        <li class="list-inline-item nav-item rounded">
+                            <span class="text-muted nav-link disabled" style="cursor: not-allowed; opacity: 0.6;" 
+                                  title="Shopping cart disabled in showcase mode">
+                                <div class="text-center">
+                                    <i class="fas fa-shopping-bag fa-lg"></i>
+                                    <p class="my-0 account-bag">€0.00</p>
+                                </div>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -175,6 +182,103 @@
 
     {% block postloadjs %}
     {% endblock %}
+    
+    <!-- Sidebar JavaScript - placed directly before </body> to ensure it runs -->
+    <script>
+        (function() {
+            'use strict';
+            
+            function initSidebar() {
+                const navbarToggler = document.getElementById('mobile-sidebar-toggle');
+                const navbarCollapse = document.getElementById('navbarTogglerDemo03');
+                const sidebarBackdrop = document.querySelector('.sidebar-backdrop');
+                const sidebarClose = document.querySelector('.sidebar-close');
+                
+                if (!navbarToggler || !navbarCollapse) {
+                    return;
+                }
+                
+                function openSidebar() {
+                    if (navbarCollapse) {
+                        navbarCollapse.style.setProperty('display', 'block', 'important');
+                        navbarCollapse.style.setProperty('visibility', 'visible', 'important');
+                        navbarCollapse.style.setProperty('left', '0', 'important');
+                        navbarCollapse.style.setProperty('opacity', '1', 'important');
+                        navbarCollapse.classList.add('sidebar-open');
+                    }
+                    if (sidebarBackdrop) {
+                        sidebarBackdrop.classList.add('show');
+                    }
+                    document.body.style.overflow = 'hidden';
+                    if (navbarToggler) {
+                        navbarToggler.setAttribute('aria-expanded', 'true');
+                    }
+                }
+                
+                function closeSidebar() {
+                    if (navbarCollapse) {
+                        navbarCollapse.classList.remove('sidebar-open');
+                        navbarCollapse.style.setProperty('left', '-100%', 'important');
+                    }
+                    if (sidebarBackdrop) {
+                        sidebarBackdrop.classList.remove('show');
+                    }
+                    document.body.style.overflow = '';
+                    if (navbarToggler) {
+                        navbarToggler.setAttribute('aria-expanded', 'false');
+                    }
+                }
+                
+                function toggleSidebar() {
+                    if (navbarCollapse && navbarCollapse.classList.contains('sidebar-open')) {
+                        closeSidebar();
+                    } else {
+                        openSidebar();
+                    }
+                }
+                
+                // Toggle sidebar when burger menu is clicked
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (window.innerWidth <= 991) {
+                        toggleSidebar();
+                    }
+                });
+                
+                // Close sidebar when backdrop is clicked
+                if (sidebarBackdrop) {
+                    sidebarBackdrop.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        closeSidebar();
+                    });
+                }
+                
+                // Close sidebar when close button is clicked
+                if (sidebarClose) {
+                    sidebarClose.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        closeSidebar();
+                    });
+                }
+                
+                // Close sidebar on window resize if switching to desktop view
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 991) {
+                        closeSidebar();
+                    }
+                });
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initSidebar);
+            } else {
+                initSidebar();
+            }
+        })();
+    </script>
 
 </body>
 

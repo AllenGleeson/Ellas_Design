@@ -21,14 +21,26 @@ body {
     background-image: linear-gradient(#f993be, #fb70ab);
     border-bottom: 2px solid #fff !important;
     z-index: 2;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-link {
     color: white !important;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem !important;
+    font-weight: 500;
 }
 
 .nav-item:hover {
-    background-color: #ffa8cd;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-item.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
 }
 
 .navbar-nav .list-inline-item{
@@ -37,10 +49,36 @@ body {
 
 #logo {
     width: 120px;
+    transition: transform 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.05);
 }
 
 .nav_buttons {
     font-size: 2rem;
+}
+
+.navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.3) !important;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 header {
@@ -96,48 +134,248 @@ footer a {
 
 /* Media queries */
 
+@media only screen and (max-width: 991px) {
+    /* Tablet and below - sidebar navigation */
+    /* Override Bootstrap's collapse class completely */
+    .navbar-collapse.collapse,
+    #navbarTogglerDemo03.collapse,
+    #navbarTogglerDemo03.navbar-collapse.collapse {
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: linear-gradient(#f993be, #fb70ab) !important;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2) !important;
+        transition: left 0.3s ease !important;
+        z-index: 99999 !important;
+        padding: 2rem 1.5rem !important;
+        overflow-y: auto !important;
+        border-radius: 0 !important;
+        margin-top: 0 !important;
+        backdrop-filter: none !important;
+        display: block !important;
+        visibility: hidden !important;
+        opacity: 1 !important;
+    }
+    
+    .navbar-collapse.collapse.sidebar-open,
+    #navbarTogglerDemo03.collapse.sidebar-open,
+    #navbarTogglerDemo03.navbar-collapse.collapse.sidebar-open {
+        left: 0 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Sidebar backdrop/overlay */
+    .sidebar-backdrop {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        z-index: 99998 !important;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        cursor: pointer !important;
+        pointer-events: none;
+    }
+    
+    .sidebar-backdrop.show {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+    
+    .nav_buttons {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2rem;
+    }
+    
+    .nav_buttons .nav-item {
+        margin: 0.5rem 0;
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .nav_buttons .nav-link {
+        padding: 1rem 1.5rem !important;
+        font-size: 1.5rem;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    
+    /* Account and bag in sidebar */
+    .navbar-nav .list-inline-item {
+        display: block;
+        margin: 0.5rem 0;
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .account-bag {
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+    }
+    
+    .navbar-nav .list-inline-item .nav-link {
+        padding: 0.75rem 1.5rem !important;
+        width: 100%;
+        text-align: left;
+    }
+    
+    /* Close button for sidebar */
+    .sidebar-close {
+        position: absolute !important;
+        top: 1rem !important;
+        right: 1rem !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 2px solid rgba(255, 255, 255, 0.8) !important;
+        color: white !important;
+        font-size: 1.5rem !important;
+        cursor: pointer !important;
+        padding: 0.5rem !important;
+        width: 45px !important;
+        height: 45px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        transition: all 0.3s ease !important;
+        z-index: 100000 !important;
+        pointer-events: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .sidebar-close:hover {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+        transform: scale(1.1);
+    }
+    
+    .sidebar-close:active {
+        transform: scale(0.95);
+    }
+    
+    .sidebar-close:focus {
+        outline: 3px solid rgba(255, 255, 255, 0.8) !important;
+        outline-offset: 2px !important;
+    }
+}
+
 @media only screen and (max-width: 500px) {
+    .navbar {
+        padding: 0.4rem 0.75rem;
+    }
+    
     #logo {
         width: 68px;
     }
+    
+    .navbar-collapse {
+        width: 260px;
+        padding: 1.5rem 1rem;
+    }
+    
     .navbar-nav .list-inline-item {
         min-width: 0px;
+        margin: 0.4rem 0;
     }
-    .navbar-toggler{
+    
+    .navbar-toggler {
         font-size: 1rem;
+        padding: 0.3rem 0.5rem;
     }
-    .navbar-toggler:focus{
-        box-shadow: 0 0 0 0.1rem;
+    
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.4) !important;
     }
-    .nav-link{
-        padding: 6px;
+    
+    .nav-link {
+        padding: 0.6rem 0.8rem !important;
+        font-size: 1.1rem;
     }
-    .dropdown-menu{
+    
+    .nav_buttons {
+        font-size: 1.3rem;
+    }
+    
+    .nav_buttons .nav-link {
+        padding: 0.6rem 0.8rem !important;
+        font-size: 1.3rem;
+    }
+    
+    .dropdown-menu {
         min-width: none !important;
+        width: 100%;
     }
+    
+    .account-bag {
+        font-size: 0.75rem;
+        padding: 0.2rem 0;
+    }
+    
+    .navbar-nav .list-inline-item .nav-link {
+        padding: 0.4rem 0.8rem !important;
+    }
+    
+    .navbar-nav .list-inline-item .nav-link i {
+        font-size: 1.1rem !important;
+    }
+    
     footer {
         font-size: 0.8rem;
         min-height: 0px;
         margin-top: 0px;
         padding: 16px;
     }
+    
     footer h3 {
         margin: 6px;
     }
-    .flex-wrapper{
+    
+    .flex-wrapper {
         min-height: 70vh;
     }
-    .fa-ul{
+    
+    .fa-ul {
         margin-left: 0 !important;
     }
-    .account-bag{
-        font-size: 0.8rem;
-    }
+}
+
+/* Disabled showcase elements */
+.nav-link.disabled {
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.nav-link.disabled:hover {
+    background-color: transparent !important;
 }
 
 @media only screen and (max-width: 700px) {
     .nav_buttons {
         font-size: 1.4rem;
+    }
+    
+    .navbar-nav .list-inline-item {
+        min-width: 90px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    /* Desktop - ensure proper spacing */
+    .navbar-nav .list-inline-item {
+        margin: 0 0.5rem;
+    }
+    
+    .nav_buttons .nav-item {
+        margin: 0 0.5rem;
     }
 }
 
